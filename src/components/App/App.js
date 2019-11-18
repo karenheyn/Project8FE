@@ -1,5 +1,8 @@
-import React from "react";
-import logo from "./logo.svg";
+import React, { Component } from "react";
+import { Route } from "react-router-dom";
+import Home from "../Home/Home";
+import SearchResults from "../SearchResults/SearchResults";
+import Restaurant from "../Restaurant/Restaurant";
 import "./App.css";
 
 class App extends Component {
@@ -15,6 +18,8 @@ class App extends Component {
 				</nav>
 				<main>
 					<Route path='/' exact component={Home} />
+					<Route path='/searchresults' component={SearchResults} />
+					<Route path='/:restaurant' component={Restaurant} />
 				</main>
 			</div>
 		);
