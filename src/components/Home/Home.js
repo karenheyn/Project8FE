@@ -4,7 +4,7 @@ import "./Home.css";
 class Home extends Component {
 	constructor(props) {
 		super(props);
-		// console.log(this.props.data);
+		console.log(this.props.data);
 		this.state = {
 			searchBar: "",
 			data: this.props.data
