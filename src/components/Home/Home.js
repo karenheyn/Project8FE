@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Home.css";
 let url = "https://dc-100-restaurants-db.herokuapp.com/restaurants";
-
+import Carousel from "./Carousel/Carousel";
 // I LIKE BIG BUTTS AND I CANNOT LIE!!!!!
 
 class Home extends Component {
@@ -40,15 +40,10 @@ class Home extends Component {
             <button type='submit'>Seach</button>
           </form>
           <div className='slider'>
-            <img src='https://via.placeholder.com/800x350' alt='placeholder' />
+            <Carousel></Carousel>
           </div>
-<<<<<<< HEAD
           <div className='most-reviewed-title'>
-            <h2>{arrayOfData[5].name}</h2>
-=======
-          <div className="most-reviewed-title">
             <h2>{arrayOfData[9].name}</h2>
->>>>>>> 6c2ebd655d48d299143963fb05824ce39b144f97
           </div>
           <div className='most-reviewed'>
             <img src='https://via.placeholder.com/200' alt='placeholder' />
