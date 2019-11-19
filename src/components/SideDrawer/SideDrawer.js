@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import "./SideDrawer.css";
 const sideDrawer = props => {
 	let drawerClasses = "side-drawer";
@@ -7,6 +7,13 @@ const sideDrawer = props => {
 	}
 	return (
 		<nav className={drawerClasses}>
+			<div className='profile-img'>
+				<img
+					src='https://via.placeholder.com/150'
+					alt='placeholder for profile'
+				/>
+				<p>lorem ipsum</p>
+			</div>
 			<ul>
 				<li>
 					<a href='/'>Lorem</a>

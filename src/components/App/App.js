@@ -7,11 +7,27 @@ import Home from "../Home/Home";
 import SearchResults from "../SearchResults/SearchResults";
 import Restaurant from "../Restaurant/Restaurant";
 import "./App.css";
+let url = "https://dc-100-restaurants-db.herokuapp.com/restaurants";
 
 class App extends Component {
-	state = {
-		sideDrawerOpen: false
-	};
+	constructor(props) {
+		super(props);
+		this.state = {
+			data: [],
+			rName: [],
+			sideDrawerOpen: false
+		};
+	}
+	componentDidMount() {
+		fetch(url)
+			.then(res => res.json())
+			.then(res => {
+				this.setState({ data: res });
+			})
+			.catch(err => {
+				console.error(err);
+			});
+	}
 	drawerToggleClickHandler = () => {
 		this.setState(prevState => {
 			return { sideDrawerOpen: !prevState.sideDrawerOpen };
@@ -21,8 +37,11 @@ class App extends Component {
 		this.setState({ sideDrawerOpen: false });
 	};
 	render() {
+		console.log(this.state.rName);
+		for (let i = 0; i < this.state.data.length; i++) {
+			this.state.rName.push(this.state.data[i].name);
+		}
 		let backdrop;
-
 		if (this.state.sideDrawerOpen) {
 			backdrop = <Backdrop click={this.backdropClickHandler} />;
 		}
