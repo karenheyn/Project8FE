@@ -1,7 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import DrawerToggleButton from "../SideDrawer/DrawerToggleButton";
 import "./Navbar.css";
-import drawerToggleButton from "../SideDrawer/DrawerToggleButton";
 const Navbar = props => (
 	<header className='navbar'>
 		<nav className='navbar-navigation'>
