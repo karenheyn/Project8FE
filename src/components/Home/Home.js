@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./Home.css";
 let url = "https://dc-100-restaurants-db.herokuapp.com/restaurants";
 
+// I LIKE BIG BUTTS AND I CANNOT LIE!!!!!
+
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -27,28 +29,28 @@ class Home extends Component {
     console.log(arrayOfData);
     if (!arrayOfData.length < 1) {
       return (
-        <div className="homepage">
+        <div className='homepage'>
           <h1>Home Page</h1>
-          <form className="homepage-searchbar" onSubmit={this.handleSubmit}>
+          <form className='homepage-searchbar' onSubmit={this.handleSubmit}>
             <input
-              type="text"
-              name="searchBar"
+              type='text'
+              name='searchBar'
               onChange={this.handleChange}
             ></input>
-            <button type="submit">Seach</button>
+            <button type='submit'>Seach</button>
           </form>
-          <div className="slider">
-            <img src="https://via.placeholder.com/800x350" alt="placeholder" />
+          <div className='slider'>
+            <img src='https://via.placeholder.com/800x350' alt='placeholder' />
           </div>
-          <div className="most-reviewed-title">
+          <div className='most-reviewed-title'>
             <h2>{arrayOfData[5].name}</h2>
           </div>
-          <div className="most-reviewed">
-            <img src="https://via.placeholder.com/200" alt="placeholder" />
-            <img src="https://via.placeholder.com/200" alt="placeholder" />
-            <img src="https://via.placeholder.com/200" alt="placeholder" />
-            <img src="https://via.placeholder.com/200" alt="placeholder" />
-            <img src="https://via.placeholder.com/200" alt="placeholder" />
+          <div className='most-reviewed'>
+            <img src='https://via.placeholder.com/200' alt='placeholder' />
+            <img src='https://via.placeholder.com/200' alt='placeholder' />
+            <img src='https://via.placeholder.com/200' alt='placeholder' />
+            <img src='https://via.placeholder.com/200' alt='placeholder' />
+            <img src='https://via.placeholder.com/200' alt='placeholder' />
           </div>
         </div>
       );
