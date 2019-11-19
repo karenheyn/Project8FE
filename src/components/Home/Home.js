@@ -31,17 +31,6 @@ class Home extends Component {
 		e.preventDefault();
 	};
 
-	componentDidMount() {
-		console.log(this.props.data);
-		let arrayOfNames = [];
-
-		this.props.data.map(({ name }) => {
-			arrayOfNames.push(name);
-			return;
-		});
-		this.setState({ data: arrayOfNames });
-	}
-
 	render() {
 		console.log(this.state.data);
 		if (!this.state.loading) {
@@ -76,3 +65,13 @@ class Home extends Component {
 	}
 }
 export default Home;
+// componentDidMount() {
+// 	console.log(this.props.data);
+// 	let arrayOfNames = [];
+
+// 	this.props.data.map(({ name }) => {
+// 		arrayOfNames.push(name);
+// 		return;
+// 	});
+// 	this.setState({ data: arrayOfNames });
+// }
