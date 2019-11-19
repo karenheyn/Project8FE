@@ -1,20 +1,34 @@
 import React, { Component } from "react";
+import DrawerToggleButton from "../SideDrawer/DrawerToggleButton";
 import "./Navbar.css";
-class Navbar extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {};
-	}
-	render() {
-		return (
-			<div className='navbar'>
+import drawerToggleButton from "../SideDrawer/DrawerToggleButton";
+const Navbar = props => (
+	<header className='navbar'>
+		<nav className='navbar-navigation'>
+			<div>
+				<DrawerToggleButton click={props.drawerClickHandler} />
+			</div>
+			<div className='logo'>
+				<a href='/'>Logo</a>
+			</div>
+			<div className='spacer' />
+			<div className='nav-items'>
 				<ul>
-					<li>Test</li>
-					<li>Test</li>
-					<li>Test</li>
+					<li>
+						<a href='/'>Lorem</a>
+					</li>
+					<li>
+						<a href='/'>Ipsum</a>
+					</li>
+					<li>
+						<a href='/'>Lorem</a>
+					</li>
+					<li>
+						<a href='/'>Ipsum</a>
+					</li>
 				</ul>
 			</div>
-		);
-	}
-}
+		</nav>
+	</header>
+);
 export default Navbar;

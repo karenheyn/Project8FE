@@ -1,16 +1,34 @@
-nav {
+.navbar-navigation {
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
 	display: flex;
+	padding: 0 30px;
 	background-color: red;
 	height: 50px;
 	align-items: center;
 }
-nav ul {
+nav .navbar {
+	display: flex;
+}
+nav .logo {
+	margin-left: 2rem;
+}
+.spacer {
+	flex: 1;
+}
+.navbar-navigation ul {
+	display: flex;
 	padding: 0px;
 	margin: 0 40px;
 }
-nav li {
+.navbar-navigation li {
 	list-style: none;
-	display: inline-flex;
+	display: flex;
 	margin: 0 20px;
-	align-content: center;
+}
+.navbar-navigation a {
+	text-decoration: none;
+	color: black;
 }
