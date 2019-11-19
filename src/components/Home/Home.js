@@ -41,7 +41,7 @@ class Home extends Component {
             <img src="https://via.placeholder.com/800x350" alt="placeholder" />
           </div>
           <div className="most-reviewed-title">
-            <h2>{arrayOfData[5].name}</h2>
+            <h2>{arrayOfData[9].name}</h2>
           </div>
           <div className="most-reviewed">
             <img src="https://via.placeholder.com/200" alt="placeholder" />
