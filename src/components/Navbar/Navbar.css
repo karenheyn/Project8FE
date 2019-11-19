@@ -1,0 +1,16 @@
+nav {
+	display: flex;
+	background-color: red;
+	height: 50px;
+	align-items: center;
+}
+nav ul {
+	padding: 0px;
+	margin: 0 40px;
+}
+nav li {
+	list-style: none;
+	display: inline-flex;
+	margin: 0 20px;
+	align-content: center;
+}

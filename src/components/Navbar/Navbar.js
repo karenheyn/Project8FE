@@ -1,3 +1,5 @@
+import React, { Component } from "react";
+import "./Navbar.css";
 class Navbar extends Component {
 	constructor(props) {
 		super(props);
@@ -5,11 +7,11 @@ class Navbar extends Component {
 	}
 	render() {
 		return (
-			<div>
+			<div className='navbar'>
 				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
+					<li>Test</li>
+					<li>Test</li>
+					<li>Test</li>
 				</ul>
 			</div>
 		);
