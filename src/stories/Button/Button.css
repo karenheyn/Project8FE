@@ -1,0 +1,21 @@
+button {
+    height: 40px;
+    width: 100px;
+    border-radius: 2px;
+    padding: 5px 25px;
+    font-family: 'Roboto', sans-serif;
+    background-color: #5ADBFF;
+    border: none;
+    color: white;
+    letter-spacing: 1px;
+    font-size: 14px;
+}
+
+.button-submit-hover:hover {
+    background: rgb(64, 198, 235)
+}
+
+.button-search {
+    width: 43px;
+    padding: 4px;
+}

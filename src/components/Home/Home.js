@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Home.css";
+let url = "https://dc-100-restaurants-db.herokuapp.com/restaurants";
 
 class Home extends Component {
   constructor(props) {
@@ -56,3 +57,13 @@ class Home extends Component {
   }
 }
 export default Home;
+// componentDidMount() {
+// 	console.log(this.props.data);
+// 	let arrayOfNames = [];
+
+// 	this.props.data.map(({ name }) => {
+// 		arrayOfNames.push(name);
+// 		return;
+// 	});
+// 	this.setState({ data: arrayOfNames });
+// }
