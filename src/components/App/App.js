@@ -24,7 +24,7 @@ class App extends Component {
 			.then(res => res.json())
 
 			.then(res => {
-				console.log(res);
+				// console.log(res);
 				this.setState({ data: res, isLoading: false });
 			})
 			.catch(err => {
@@ -55,7 +55,10 @@ class App extends Component {
 					<SideDrawer show={this.state.sideDrawerOpen} />
 					{backdrop}
 					<main>
-						<Route path='/' render={() => <Home data={this.state.data} />} />
+						<Route
+							path='/'
+							render={props => <Home {...props} data={this.state.data} />}
+						/>
 						<Route path='/searchresults' component={SearchResults} />
 						<Route path='/:restaurant' component={Restaurant} />
 					</main>
