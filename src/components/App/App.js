@@ -15,14 +15,17 @@ class App extends Component {
 		this.state = {
 			data: [],
 			rName: [],
-			sideDrawerOpen: false
+			sideDrawerOpen: false,
+			isLoading: true
 		};
 	}
 	componentDidMount() {
 		fetch(url)
 			.then(res => res.json())
+
 			.then(res => {
-				this.setState({ data: res });
+				console.log(res);
+				this.setState({ data: res, isLoading: false });
 			})
 			.catch(err => {
 				console.error(err);
@@ -37,7 +40,7 @@ class App extends Component {
 		this.setState({ sideDrawerOpen: false });
 	};
 	render() {
-		console.log(this.state.rName);
+		console.log(this.state.data);
 		for (let i = 0; i < this.state.data.length; i++) {
 			this.state.rName.push(this.state.data[i].name);
 		}
@@ -45,18 +48,21 @@ class App extends Component {
 		if (this.state.sideDrawerOpen) {
 			backdrop = <Backdrop click={this.backdropClickHandler} />;
 		}
-		return (
-			<div className='main-container'>
-				<Navbar drawerClickHandler={this.drawerToggleClickHandler} />
-				<SideDrawer show={this.state.sideDrawerOpen} />
-				{backdrop}
-				<main>
-					<Route path='/' exact component={Home} />
-					<Route path='/searchresults' component={SearchResults} />
-					<Route path='/:restaurant' component={Restaurant} />
-				</main>
-			</div>
-		);
+		if (!this.state.loading) {
+			return (
+				<div className='main-container'>
+					<Navbar drawerClickHandler={this.drawerToggleClickHandler} />
+					<SideDrawer show={this.state.sideDrawerOpen} />
+					{backdrop}
+					<main>
+						<Route path='/' render={() => <Home data={this.state.data} />} />
+						<Route path='/searchresults' component={SearchResults} />
+						<Route path='/:restaurant' component={Restaurant} />
+					</main>
+				</div>
+			);
+		}
+		return <div>Loading</div>;
 	}
 }
 

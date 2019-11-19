@@ -4,8 +4,10 @@ import "./Home.css";
 class Home extends Component {
 	constructor(props) {
 		super(props);
+		// console.log(this.props.data);
 		this.state = {
-			searchBar: ""
+			searchBar: "",
+			data: this.props.data
 		};
 	}
 	handleChange = e => {
@@ -15,7 +17,9 @@ class Home extends Component {
 	handleSubmit = e => {
 		e.preventDefault();
 	};
+
 	render() {
+		console.log(this.state.data);
 		return (
 			<div className='homepage'>
 				<h1>Home Page</h1>
