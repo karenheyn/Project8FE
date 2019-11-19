@@ -14,12 +14,25 @@
 .side-drawer.open {
 	transform: translateX(0);
 }
+.side-drawer .profile-img {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-top: 25px;
+}
+.side-drawer .profile-img img {
+	border-radius: 80px;
+	width: 43%;
+	margin: 0 auto;
+}
+.side-drawer .profile-img p {
+	margin: 0 auto;
+}
 .side-drawer ul {
 	height: 100%;
 	list-style: none;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
 }
 .side-drawer li {
 	margin: 0.5rem 0;

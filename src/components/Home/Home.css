@@ -1,0 +1,36 @@
+.homepage {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+.homepage h1 {
+	margin: 0 auto;
+}
+.homepage-searchbar {
+	display: flex;
+	align-items: center;
+	width: 400px;
+	margin: 0 auto;
+}
+.homepage-searchbar input {
+	height: 33px;
+	width: 100%;
+	border: 2px solid lightgray;
+	margin: 25px auto;
+	font-size: 25px;
+}
+.homepage-searchbar button {
+	height: 38px;
+	border-left: none;
+}
+.homepage .slider {
+	margin: 0 auto;
+	margin-bottom: 50px;
+}
+.most-reviewed-title {
+	margin: 0 auto;
+}
+.homepage .most-reviewed {
+	display: flex;
+	justify-content: space-between;
+}
