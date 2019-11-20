@@ -1,46 +1,20 @@
 import React, { Component } from "react";
 import "./Home.css";
 import Carousel from "./Carousel/Carousel";
-// import TopFive from "../TopFiveListings/TopFiveListings";
+import Searchbar from "../Search/Search";
 import { array, arrayOf } from "prop-types";
 import RestaurantImageBox from "../../components/RestaurantImageBox/RestaurantImageBox";
 import Restaurant from "../Restaurant/Restaurant";
 import RestaurantDetail from "../RestaurantDetail/RestaurantDetail";
-
 
 class Home extends Component {
 	constructor(props) {
 		super(props);
 		// console.log(this.props.data);
 		this.state = {
-			searchBar: "",
 			data: this.props.data,
-			results: [],
-      renderDetails: false
+			renderDetails: false
 		};
-	}
-	handleInputChange = e => {
-		e.preventDefault();
-		this.setState({ searchBar: e.target.value });
-	};
-
-	handleSubmit = e => {
-		e.preventDefault();
-		let i;
-		this.props.data.map(item => {
-			if (
-				item.name.toLowerCase().includes(this.state.searchBar) ||
-				item.categories[0].toLowerCase().includes(this.state.searchBar)
-			) {
-				console.log(item);
-			}
-		});
-	};
-	componentDidUpdate(prevProps, prevState) {
-		const { history } = this.props;
-		if (prevState.results !== this.state.results) {
-			history.push("/SearchResults");
-		}
 	}
 	render() {
 		let arrayOfData = [];
@@ -58,37 +32,29 @@ class Home extends Component {
 			return (
 				<div className='homepage'>
 					<h1>Home Page</h1>
-					<form className='homepage-searchbar' onSubmit={this.handleSubmit}>
-						<input
-							type='text'
-							name='searchBar'
-							onChange={this.handleInputChange}
-						></input>
-						<button type='submit'>Seach</button>
-					</form>
+					<Searchbar data={arrayOfData} />
 					<div className='slider'>
 						<Carousel className='carousel' data={arrayOfData}></Carousel>
 					</div>
-					
-          <div className="top-rated-rests">
-            {arrayOfData.slice(0, 5).map(item => {
-              return (
-                <RestaurantImageBox
-                  imageUrl={item.imageUrl}
-                  name={item.name}
-                  yelpUrl={item.yelpUrl}
-                />
-              );
-            })}
-          </div>
-          {this.state.renderDetails ? (
-            <RestaurantDetail data={arrayOfData} />
-          ) : null}
-        </div>
-      );
-    }
-    return <div>Loading</div>;
-  }
 
+					<div className='top-rated-rests'>
+						{arrayOfData.slice(0, 5).map(item => {
+							return (
+								<RestaurantImageBox
+									imageUrl={item.imageUrl}
+									name={item.name}
+									yelpUrl={item.yelpUrl}
+								/>
+							);
+						})}
+					</div>
+					{this.state.renderDetails ? (
+						<RestaurantDetail data={arrayOfData} />
+					) : null}
+				</div>
+			);
+		}
+		return <div>Loading</div>;
+	}
 }
 export default Home;
