@@ -10,6 +10,7 @@ class RestaurantDetail extends Component {
   }
 
   render() {
+    console.log(this.props.data[0]);
     return (
       <div className="rest-detail-box-container">
         <div className="detail-overlay"></div>
@@ -17,9 +18,19 @@ class RestaurantDetail extends Component {
           <div className="rest-image-container">
             <img
               className="rest-image-picture"
-              src={this.props.imageUrl}
+              src={this.props.data[0].imageUrl}
               alt="whoops"
             />
+          </div>
+          <div className="rest-details-data">
+            <h1 className="rest-data-name">{this.props.data[0].name}</h1>
+            <h3 className="rest-data-location">
+              {`${this.props.data[0].location.address}, 
+                ${this.props.data[0].location.city}`}
+            </h3>
+            {this.props.data[0].categories.map(item => {
+              return <h3>`${item}`</h3>;
+            })}
           </div>
         </div>
       </div>

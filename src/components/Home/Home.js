@@ -67,7 +67,7 @@ class Home extends Component {
               );
             })}
           </div>
-          <RestaurantDetail imageUrl={arrayOfData[0].imageUrl} />
+          <RestaurantDetail data={arrayOfData} />
         </div>
       );
     }
