@@ -1,0 +1,24 @@
+.cat-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.cat-title-box {
+    border: 2px;
+    width: 150px;
+    text-align: center;
+    height: 150px;
+    background-color: #ECA72C;
+    margin: 10px;
+}
+
+p {
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+    padding-top: 43%;
+    color: #094074;
+
+
+}
