@@ -3,6 +3,10 @@ import "./Home.css";
 import Carousel from "./Carousel/Carousel";
 // import TopFive from "../TopFiveListings/TopFiveListings";
 import { array, arrayOf } from "prop-types";
+import RestaurantImageBox from "../../components/RestaurantImageBox/RestaurantImageBox";
+import Restaurant from "../Restaurant/Restaurant";
+import RestaurantDetail from "../RestaurantDetail/RestaurantDetail";
+
 
 class Home extends Component {
 	constructor(props) {
@@ -11,7 +15,8 @@ class Home extends Component {
 		this.state = {
 			searchBar: "",
 			data: this.props.data,
-			results: []
+			results: [],
+      renderDetails: false
 		};
 	}
 	handleInputChange = e => {
@@ -64,16 +69,26 @@ class Home extends Component {
 					<div className='slider'>
 						<Carousel className='carousel' data={arrayOfData}></Carousel>
 					</div>
-					<div className='most-reviewed-title'>
-						<h2>{arrayOfData[9].name}</h2>
-					</div>
-					{/* <div className='most-reviewed'>
-						<TopFive data={ratings} />
-					</div> */}
-				</div>
-			);
-		}
-		return <div>Loading</div>;
-	}
+					
+          <div className="top-rated-rests">
+            {arrayOfData.slice(0, 5).map(item => {
+              return (
+                <RestaurantImageBox
+                  imageUrl={item.imageUrl}
+                  name={item.name}
+                  yelpUrl={item.yelpUrl}
+                />
+              );
+            })}
+          </div>
+          {this.state.renderDetails ? (
+            <RestaurantDetail data={arrayOfData} />
+          ) : null}
+        </div>
+      );
+    }
+    return <div>Loading</div>;
+  }
+
 }
 export default Home;
