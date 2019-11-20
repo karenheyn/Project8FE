@@ -13,7 +13,8 @@ class Home extends Component {
     // console.log(this.props.data);
     this.state = {
       searchBar: "",
-      data: this.props.data
+      data: this.props.data,
+      renderDetails: false
     };
   }
   handleInputChange = e => {
@@ -67,7 +68,9 @@ class Home extends Component {
               );
             })}
           </div>
-          <RestaurantDetail data={arrayOfData} />
+          {this.state.renderDetails ? (
+            <RestaurantDetail data={arrayOfData} />
+          ) : null}
         </div>
       );
     }
