@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import "./Home.css";
 import Carousel from "./Carousel/Carousel";
-import TopFive from "../TopFiveListings/TopFiveListings";
+// import TopFive from "../TopFiveListings/TopFiveListings";
+import { array, arrayOf } from "prop-types";
+import RestaurantImageBox from "../../components/RestaurantImageBox/RestaurantImageBox";
+import Restaurant from "../Restaurant/Restaurant";
+import RestaurantDetail from "../RestaurantDetail/RestaurantDetail";
 
 class Home extends Component {
   constructor(props) {
@@ -10,7 +14,8 @@ class Home extends Component {
     this.state = {
       searchBar: "",
       data: this.props.data,
-      results: []
+      results: [],
+      renderDetails: false
     };
   }
   handleInputChange = e => {
@@ -20,23 +25,35 @@ class Home extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
+    let i;
     this.props.data.map(item => {
-      if (item.name.includes(this.state.searchBar)) {
+      if (
+        item.name.toLowerCase().includes(this.state.searchBar) ||
+        item.categories[0].toLowerCase().includes(this.state.searchBar)
+      ) {
         console.log(item);
       }
       return item;
     });
   };
+  componentDidUpdate(prevProps, prevState) {
+    const { history } = this.props;
+    if (prevState.results !== this.state.results) {
+      history.push("/SearchResults");
+    }
+  }
   render() {
     let arrayOfData = [];
     this.props.data.map(item => {
       arrayOfData.push(item);
+      return item;
     });
     let ratings = [];
     arrayOfData.map(item => {
       if (item.rating > 4.6) {
         ratings.push(item);
       }
+      return item;
     });
     // console.log(arrayOfData);
     if (!arrayOfData.length < 1) {
@@ -54,12 +71,22 @@ class Home extends Component {
           <div className='slider'>
             <Carousel className='carousel' data={arrayOfData}></Carousel>
           </div>
-          <div className='most-reviewed-title'>
-            <h2>{arrayOfData[9].name}</h2>
+
+          <div className='top-rated-rests'>
+            {arrayOfData.slice(0, 5).map(item => {
+              return (
+                <RestaurantImageBox
+                  key={item.yelpUrl}
+                  imageUrl={item.imageUrl}
+                  name={item.name}
+                  yelpUrl={item.yelpUrl}
+                />
+              );
+            })}
           </div>
-          <div className='most-reviewed'>
-            <TopFive data={ratings} />
-          </div>
+          {this.state.renderDetails ? (
+            <RestaurantDetail data={arrayOfData} />
+          ) : null}
         </div>
       );
     }
@@ -67,13 +94,3 @@ class Home extends Component {
   }
 }
 export default Home;
-// componentDidMount() {
-// 	console.log(this.props.data);
-// 	let arrayOfNames = [];
-
-// 	this.props.data.map(({ name }) => {
-// 		arrayOfNames.push(name);
-// 		return;
-// 	});
-// 	this.setState({ data: arrayOfNames });
-// }
