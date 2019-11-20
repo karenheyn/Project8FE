@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Home.css";
-let url = "https://dc-100-restaurants-db.herokuapp.com/restaurants";
+import Carousel from "./Carousel/Carousel";
 
 // I LIKE BIG BUTTS AND I CANNOT LIE!!!!!
 
@@ -13,9 +13,9 @@ class Home extends Component {
       data: this.props.data
     };
   }
-  handleChange = e => {
+  handleInputChange = e => {
     e.preventDefault();
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({ searchBar: e.target.value });
   };
   handleSubmit = e => {
     e.preventDefault();
@@ -26,6 +26,7 @@ class Home extends Component {
     this.props.data.map(item => {
       arrayOfData.push(item);
     });
+    console.log(this.state.searchBar);
     console.log(arrayOfData);
     if (!arrayOfData.length < 1) {
       return (
@@ -39,10 +40,17 @@ class Home extends Component {
             ></input>
             <button type="submit">Seach</button>
           </form>
+<<<<<<< HEAD
           <div className="slider">
             <img src="https://via.placeholder.com/800x350" alt="placeholder" />
           </div>
           <div className="most-reviewed-title">
+=======
+          <div className='slider'>
+            <Carousel className='carousel' data={arrayOfData}></Carousel>
+          </div>
+          <div className='most-reviewed-title'>
+>>>>>>> 0484d79543545182c8940440318e05789479727d
             <h2>{arrayOfData[9].name}</h2>
           </div>
           <div className="most-reviewed">

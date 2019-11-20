@@ -1,0 +1,16 @@
+.d-block {
+    height: 400px;
+    object-fit: cover;
+
+}
+
+.carousel-control-next-icon,
+.carousel-control-previous-icon {
+    display: none;
+}
+
+.slider {
+    border: 10px solid #094074;
+    z-index: 0;
+    border-radius: 4px;
+}
