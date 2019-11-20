@@ -28,9 +28,14 @@ class RestaurantDetail extends Component {
               {`${this.props.data[0].location.address}, 
                 ${this.props.data[0].location.city}`}
             </h3>
+            <h3>Categories:</h3>
             {this.props.data[0].categories.map(item => {
-              return <h3>`${item}`</h3>;
+              return <h3>{item}</h3>;
             })}
+            <a href={this.props.data[0].yelpUrl}>Yelp Url</a>
+            <h4>Phone Number: {this.props.data[0].phone}</h4>
+            <h5>Rating: {this.props.data[0].rating}</h5>
+            <h1>REVIEWS WILL HOPEFULLY GO DOWN HERE</h1>
           </div>
         </div>
       </div>
