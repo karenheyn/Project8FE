@@ -8,6 +8,7 @@ import SearchResults from "../SearchResults/SearchResults";
 import Restaurant from "../Restaurant/Restaurant";
 import Catagories from "./Categories/Categories";
 import Category from "./Categories/Category/Category";
+import Search from "../Search/Search";
 import "./App.css";
 let url = "https://dc-100-restaurants-db.herokuapp.com/restaurants";
 
@@ -70,6 +71,11 @@ class App extends Component {
               exact
               path='/cuisine'
               render={() => <Catagories data={this.state.data} />}
+            />
+            <Route path='/searchresults' component={SearchResults} />
+            <Route
+              path='/search'
+              render={() => <Search data={this.state.data} />}
             />
           </main>
         </div>
