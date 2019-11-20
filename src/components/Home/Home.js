@@ -21,8 +21,12 @@ class Home extends Component {
 
 	handleSubmit = e => {
 		e.preventDefault();
+		let i;
 		this.props.data.map(item => {
-			if (item.name.includes(this.state.searchBar)) {
+			if (
+				item.name.toLowerCase().includes(this.state.searchBar) ||
+				item.categories[0].toLowerCase().includes(this.state.searchBar)
+			) {
 				console.log(item);
 			}
 		});
