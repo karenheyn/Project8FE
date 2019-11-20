@@ -9,10 +9,6 @@ import Restaurant from "../Restaurant/Restaurant";
 import "./App.css";
 let url = "https://dc-100-restaurants-db.herokuapp.com/restaurants";
 
-// jfhsdbvaeljhvbear;kjvb;keajrnvk;eajrnv;kaejnvk;ajnvk;nadvk
-
-// javlhbvlabefnvkjeawnkljabnvelkjabnvkljr
-
 class App extends Component {
 	constructor(props) {
 		super(props);
@@ -43,6 +39,7 @@ class App extends Component {
 	backdropClickHandler = () => {
 		this.setState({ sideDrawerOpen: false });
 	};
+
 	render() {
 		// console.log(this.state.data);
 		for (let i = 0; i < this.state.data.length; i++) {
