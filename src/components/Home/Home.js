@@ -7,69 +7,73 @@ import RestaurantImageBox from "../../components/RestaurantImageBox/RestaurantIm
 import Restaurant from "../Restaurant/Restaurant";
 import RestaurantDetail from "../RestaurantDetail/RestaurantDetail";
 
-
 class Home extends Component {
-	constructor(props) {
-		super(props);
-		// console.log(this.props.data);
-		this.state = {
-			searchBar: "",
-			data: this.props.data,
-			results: [],
+  constructor(props) {
+    super(props);
+    // console.log(this.props.data);
+    this.state = {
+      searchBar: "",
+      data: this.props.data,
+      results: [],
       renderDetails: false
-		};
-	}
-	handleInputChange = e => {
-		e.preventDefault();
-		this.setState({ searchBar: e.target.value });
-	};
+    };
+  }
+  handleInputChange = e => {
+    e.preventDefault();
+    this.setState({ searchBar: e.target.value });
+  };
 
-	handleSubmit = e => {
-		e.preventDefault();
-		let i;
-		this.props.data.map(item => {
-			if (
-				item.name.toLowerCase().includes(this.state.searchBar) ||
-				item.categories[0].toLowerCase().includes(this.state.searchBar)
-			) {
-				console.log(item);
-			}
-		});
-	};
-	componentDidUpdate(prevProps, prevState) {
-		const { history } = this.props;
-		if (prevState.results !== this.state.results) {
-			history.push("/SearchResults");
-		}
-	}
-	render() {
-		let arrayOfData = [];
-		this.props.data.map(item => {
-			arrayOfData.push(item);
-		});
-		let ratings = [];
-		arrayOfData.map(item => {
-			if (item.rating > 4.6) {
-				ratings.push(item);
-			}
-		});
-		// console.log(arrayOfData);
-		if (!arrayOfData.length < 1) {
-			return (
-				<div className='homepage'>
-					<h1>Home Page</h1>
-					<form className='homepage-searchbar' onSubmit={this.handleSubmit}>
-						<input
-							type='text'
-							name='searchBar'
-							onChange={this.handleInputChange}
-						></input>
-						<button type='submit'>Seach</button>
-					</form>
-					<div className='slider'>
-						<Carousel className='carousel' data={arrayOfData}></Carousel>
-					</div>
-					
+  handleSubmit = e => {
+    e.preventDefault();
+    let i;
+    this.props.data.map(item => {
+      if (
+        item.name.toLowerCase().includes(this.state.searchBar) ||
+        item.categories[0].toLowerCase().includes(this.state.searchBar)
+      ) {
+        console.log(item);
+      }
+    });
+  };
+
+  getClickedRestaurantData = data => {
+    return data;
+  };
+
+  componentDidUpdate(prevProps, prevState) {
+    const { history } = this.props;
+    if (prevState.results !== this.state.results) {
+      history.push("/SearchResults");
+    }
+  }
+  render() {
+    let arrayOfData = [];
+    this.props.data.map(item => {
+      arrayOfData.push(item);
+    });
+    let ratings = [];
+    arrayOfData.map(item => {
+      if (item.rating > 4.6) {
+        ratings.push(item);
+      }
+    });
+    // console.log(arrayOfData);
+    if (!arrayOfData.length < 1) {
+      return (
+        <div className="homepage">
+          <h1>Home Page</h1>
+          <form className="homepage-searchbar" onSubmit={this.handleSubmit}>
+            <input
+              type="text"
+              name="searchBar"
+              onChange={this.handleInputChange}
+            ></input>
+            <button type="submit">Seach</button>
+          </form>
+          <div className="slider">
+            <Carousel className="carousel" data={arrayOfData}></Carousel>
+          </div>
+
           <div className="top-rated-rests">
             {arrayOfData.slice(0, 5).map(item => {
               return (
@@ -89,6 +93,5 @@ class Home extends Component {
     }
     return <div>Loading</div>;
   }
-
 }
 export default Home;
