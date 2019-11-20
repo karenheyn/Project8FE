@@ -40,17 +40,10 @@ class Home extends Component {
             ></input>
             <button type="submit">Seach</button>
           </form>
-<<<<<<< HEAD
           <div className="slider">
-            <img src="https://via.placeholder.com/800x350" alt="placeholder" />
+            <Carousel className="carousel" data={arrayOfData}></Carousel>
           </div>
           <div className="most-reviewed-title">
-=======
-          <div className='slider'>
-            <Carousel className='carousel' data={arrayOfData}></Carousel>
-          </div>
-          <div className='most-reviewed-title'>
->>>>>>> 0484d79543545182c8940440318e05789479727d
             <h2>{arrayOfData[9].name}</h2>
           </div>
           <div className="most-reviewed">
