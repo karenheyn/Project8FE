@@ -13,9 +13,9 @@ class Home extends Component {
       data: this.props.data
     };
   }
-  handleChange = e => {
+  handleInputChange = e => {
     e.preventDefault();
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({ searchBar: e.target.value });
   };
   handleSubmit = e => {
     e.preventDefault();
@@ -26,6 +26,7 @@ class Home extends Component {
     this.props.data.map(item => {
       arrayOfData.push(item);
     });
+    console.log(this.state.searchBar);
     console.log(arrayOfData);
     if (!arrayOfData.length < 1) {
       return (

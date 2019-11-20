@@ -10,6 +10,7 @@
 }
 
 .slider {
-    border: 10px solid black;
+    border: 10px solid #094074;
     z-index: 0;
+    border-radius: 4px;
 }

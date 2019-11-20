@@ -5,7 +5,7 @@ import "./Carousel.css";
 let carouselArray = [];
 
 const Carousel = props => {
-  console.log(carouselArray);
+  //   console.log(carouselArray);
   const topFive = props.data.slice(25, 30);
   //   console.log(topFive.map(image => image.imageUrl));
   topFive.map(item => {
