@@ -77,13 +77,3 @@ class Home extends Component {
 	}
 }
 export default Home;
-// componentDidMount() {
-// 	console.log(this.props.data);
-// 	let arrayOfNames = [];
-
-// 	this.props.data.map(({ name }) => {
-// 		arrayOfNames.push(name);
-// 		return;
-// 	});
-// 	this.setState({ data: arrayOfNames });
-// }
