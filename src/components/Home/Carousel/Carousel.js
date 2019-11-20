@@ -6,7 +6,7 @@ let carouselArray = [];
 
 const Carousel = props => {
   console.log(carouselArray);
-  const topFive = props.data.slice(10, 15);
+  const topFive = props.data.slice(25, 30);
   //   console.log(topFive.map(image => image.imageUrl));
   topFive.map(item => {
     carouselArray.push({
@@ -42,6 +42,9 @@ const Carousel = props => {
             src={carouselArray[0].src}
             alt='First slide'
           />
+          <div className='carousel-caption d-none d-md-block'>
+            <h5>{carouselArray[0].caption}</h5>
+          </div>
         </div>
         <div className='carousel-item'>
           <img
@@ -49,6 +52,9 @@ const Carousel = props => {
             src={carouselArray[1].src}
             alt='Second slide'
           />
+          <div className='carousel-caption d-none d-md-block'>
+            <h5>{carouselArray[1].caption}</h5>
+          </div>
         </div>
         <div className='carousel-item'>
           <img
@@ -56,6 +62,9 @@ const Carousel = props => {
             src={carouselArray[2].src}
             alt='Third slide'
           />
+          <div className='carousel-caption d-none d-md-block'>
+            <h5>{carouselArray[2].caption}</h5>
+          </div>
         </div>
         <div className='carousel-item'>
           <img
@@ -63,6 +72,9 @@ const Carousel = props => {
             src={carouselArray[3].src}
             alt='Fourth slide'
           />
+          <div className='carousel-caption d-none d-md-block'>
+            <h5>{carouselArray[3].caption}</h5>
+          </div>
         </div>
         <div className='carousel-item'>
           <img
@@ -70,6 +82,9 @@ const Carousel = props => {
             src={carouselArray[4].src}
             alt='Fifth slide'
           />
+          <div className='carousel-caption d-none d-md-block'>
+            <h5>{carouselArray[4].caption}</h5>
+          </div>
         </div>
       </div>
       <a
