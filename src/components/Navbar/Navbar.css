@@ -8,26 +8,33 @@
 	background-color: red;
 	height: 50px;
 	align-items: center;
+	z-index: 1;
 }
+
 nav .navbar {
 	display: flex;
 }
+
 nav .logo {
 	margin-left: 2rem;
 }
+
 .spacer {
 	flex: 1;
 }
+
 .navbar-navigation ul {
 	display: flex;
 	padding: 0px;
 	margin: 0 40px;
 }
+
 .navbar-navigation li {
 	list-style: none;
 	display: flex;
 	margin: 0 20px;
 }
+
 .navbar-navigation a {
 	text-decoration: none;
 	color: black;

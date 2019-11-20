@@ -11,8 +11,6 @@ let url = "https://dc-100-restaurants-db.herokuapp.com/restaurants";
 
 // jfhsdbvaeljhvbear;kjvb;keajrnvk;eajrnv;kaejnvk;ajnvk;nadvk
 
-
-
 // javlhbvlabefnvkjeawnkljabnvelkjabnvkljr
 
 class App extends Component {
@@ -57,14 +55,14 @@ class App extends Component {
     }
     if (!this.state.loading) {
       return (
-        <div className="main-container">
+        <div className='main-container'>
           <Navbar drawerClickHandler={this.drawerToggleClickHandler} />
           <SideDrawer show={this.state.sideDrawerOpen} />
           {backdrop}
           <main>
-            <Route path="/" render={() => <Home data={this.state.data} />} />
-            <Route path="/searchresults" component={SearchResults} />
-            <Route path="/:restaurant" component={Restaurant} />
+            <Route path='/' render={() => <Home data={this.state.data} />} />
+            <Route path='/searchresults' component={SearchResults} />
+            <Route path='/:restaurant' component={Restaurant} />
           </main>
         </div>
       );
