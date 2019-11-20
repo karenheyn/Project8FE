@@ -10,17 +10,23 @@ class Home extends Component {
 		// console.log(this.props.data);
 		this.state = {
 			searchBar: "",
-			data: this.props.data
+			data: this.props.data,
+			results: []
 		};
 	}
 	handleInputChange = e => {
 		e.preventDefault();
 		this.setState({ searchBar: e.target.value });
 	};
+
 	handleSubmit = e => {
 		e.preventDefault();
+		this.props.data.map(item => {
+			if (item.name.includes(this.state.searchBar)) {
+				console.log(item);
+			}
+		});
 	};
-
 	render() {
 		let arrayOfData = [];
 		this.props.data.map(item => {
@@ -32,10 +38,6 @@ class Home extends Component {
 				ratings.push(item);
 			}
 		});
-		// {
-		// 	for (let i = 0; i < arrayOfData.length; i++)
-		// 		if (arra);
-		// }
 		// console.log(arrayOfData);
 		if (!arrayOfData.length < 1) {
 			return (
@@ -45,7 +47,7 @@ class Home extends Component {
 						<input
 							type='text'
 							name='searchBar'
-							onChange={this.handleChange}
+							onChange={this.handleInputChange}
 						></input>
 						<button type='submit'>Seach</button>
 					</form>

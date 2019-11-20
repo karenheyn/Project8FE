@@ -18,7 +18,7 @@ const Carousel = props => {
 		});
 		return item;
 	});
-	console.log(carouselArray);
+	// console.log(carouselArray);
 	return (
 		<div
 			id='carouselExampleIndicators'

@@ -5,11 +5,11 @@ class TopFive extends Component {
 		super(props);
 	}
 	render() {
-		let images = this.props.data.map(item => {
+		let images = this.props.data.map((item, key) => {
 			console.log();
 			return (
-				<div className='TopFiveItem'>
-					<img src={item.imageUrl} />
+				<div className='TopFiveItem' key={key}>
+					<img src={item.imageUrl} key={key} />
 				</div>
 			);
 		});
