@@ -1,0 +1,29 @@
+.restaurant-image-container{
+    width: 300px;
+    height: 300px;
+    border: 5px solid white;
+    
+}
+
+.rest-image{
+    display: block;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    
+    filter: brightness(70%);
+    transition: filter 0.3s;
+}
+.rest-image:hover{
+    filter: brightness(100%);
+}
+
+.rest-image-name{
+    z-index: 100;
+    position: relative;
+    top: 90%;
+    font-size: 24px;
+    color: white;
+    text-align: center;
+    background-color: #094074c6;
+}

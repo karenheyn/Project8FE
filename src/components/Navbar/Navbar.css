@@ -5,10 +5,10 @@
 	left: 0;
 	display: flex;
 	padding: 0 30px;
-	background-color: #FFDD4A;
+	background-color: #ffdd4a;
 	height: 50px;
 	align-items: center;
-	z-index: 1;
+	z-index: 0;
 }
 
 nav .navbar {
@@ -37,5 +37,5 @@ nav .logo {
 
 .navbar-navigation a {
 	text-decoration: none;
-	color: #094074
+	color: #094074;
 }

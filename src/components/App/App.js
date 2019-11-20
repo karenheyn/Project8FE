@@ -56,9 +56,13 @@ class App extends Component {
 					<SideDrawer show={this.state.sideDrawerOpen} />
 					{backdrop}
 					<main>
-						<Route path='/' render={() => <Home data={this.state.data} />} />
+						<Route
+							exact
+							path='/'
+							render={() => <Home data={this.state.data} />}
+						/>
 						<Route path='/searchresults' component={SearchResults} />
-						<Route path='/:restaurant' component={Restaurant} />
+						<Route exact path='/:restaurant' component={Restaurant} />
 					</main>
 				</div>
 			);

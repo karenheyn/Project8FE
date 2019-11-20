@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Home.css";
 import Carousel from "./Carousel/Carousel";
-import TopFive from "../TopFiveListings/TopFiveListings";
+// import TopFive from "../TopFiveListings/TopFiveListings";
 import { array, arrayOf } from "prop-types";
 
 class Home extends Component {
@@ -67,9 +67,9 @@ class Home extends Component {
 					<div className='most-reviewed-title'>
 						<h2>{arrayOfData[9].name}</h2>
 					</div>
-					<div className='most-reviewed'>
+					{/* <div className='most-reviewed'>
 						<TopFive data={ratings} />
-					</div>
+					</div> */}
 				</div>
 			);
 		}
