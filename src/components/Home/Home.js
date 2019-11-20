@@ -31,6 +31,12 @@ class Home extends Component {
 			}
 		});
 	};
+	componentDidUpdate(prevProps, prevState) {
+		const { history } = this.props;
+		if (prevState.results !== this.state.results) {
+			history.push("/SearchResults");
+		}
+	}
 	render() {
 		let arrayOfData = [];
 		this.props.data.map(item => {
