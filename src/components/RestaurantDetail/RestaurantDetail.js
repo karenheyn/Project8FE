@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "./RestaurantDetail.css";
+import "../Backdrop/Backdrop";
+import Backdrop from "../Backdrop/Backdrop";
 
 class RestaurantDetail extends Component {
   constructor(props) {
@@ -8,7 +10,31 @@ class RestaurantDetail extends Component {
   }
 
   render() {
-    return <div></div>;
+    console.log(this.props.data[0]);
+    return (
+      <div className="rest-detail-box-container">
+        <div className="detail-overlay"></div>
+        <div className="rest-detail-container">
+          <div className="rest-image-container">
+            <img
+              className="rest-image-picture"
+              src={this.props.data[0].imageUrl}
+              alt="whoops"
+            />
+          </div>
+          <div className="rest-details-data">
+            <h1 className="rest-data-name">{this.props.data[0].name}</h1>
+            <h3 className="rest-data-location">
+              {`${this.props.data[0].location.address}, 
+                ${this.props.data[0].location.city}`}
+            </h3>
+            {this.props.data[0].categories.map(item => {
+              return <h3>`${item}`</h3>;
+            })}
+          </div>
+        </div>
+      </div>
+    );
   }
 }
 export default RestaurantDetail;
