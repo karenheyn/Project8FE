@@ -1,30 +1,35 @@
 import React, { Component } from "react";
 import "./Home.css";
-<<<<<<< HEAD
-=======
-let url = "https://dc-100-restaurants-db.herokuapp.com/restaurants";
 import Carousel from "./Carousel/Carousel";
-// I LIKE BIG BUTTS AND I CANNOT LIE!!!!!
->>>>>>> fd7db539d6db09f6b7179c620885185031da3f33
+import Form from "../../stories/Forms/Forms";
+import _ from "lodash";
 
 class Home extends Component {
 	constructor(props) {
 		super(props);
 		console.log(this.props.data);
 		this.state = {
-			searchBar: "",
+			query: [],
 			data: this.props.data
 		};
+		this.handleSubmit = this.handleSubmit.bind(this);
 	}
-	handleChange = e => {
-		e.preventDefault();
-		this.setState({ [e.target.name]: e.target.value });
-	};
+	handleSearch(e) {
+		let queryData = [];
+		if (e.target.value != "") {
+			this.state.data.forEach(function(restaurant) {
+				if (restaurant.toLowerCase().indexOf(e.target.value) != -1) {
+					if (queryData.length < 100) {
+						queryData.push(restaurant);
+					}
+				}
+			});
+		}
+		this.setState({ query: queryData });
+	}
 	handleSubmit = e => {
 		e.preventDefault();
 	};
-
-<<<<<<< HEAD
 	render() {
 		let arrayOfData = [];
 		this.props.data.map(item => {
@@ -35,16 +40,18 @@ class Home extends Component {
 			return (
 				<div className='homepage'>
 					<h1>Home Page</h1>
-					<form className='homepage-searchbar' onSubmit={this.handleSubmit}>
-						<input
-							type='text'
-							name='searchBar'
-							onChange={this.handleChange}
-						></input>
-						<button type='submit'>Seach</button>
-					</form>
+					<Form
+						type='search'
+						name='searchBar'
+						input='homepage-searchbar'
+						label='Search'
+						onChange={this.handleSearch}
+						onSubmit={this.handleSubmit}
+						className='homepage-searchbar'
+						search
+					/>
 					<div className='slider'>
-						<img src='https://via.placeholder.com/800x350' alt='placeholder' />
+						<Carousel></Carousel>
 					</div>
 					<div className='most-reviewed-title'>
 						<h2>{arrayOfData[9].name}</h2>
@@ -61,44 +68,6 @@ class Home extends Component {
 		}
 		return <div>Loading</div>;
 	}
-=======
-  render() {
-    let arrayOfData = [];
-    this.props.data.map(item => {
-      arrayOfData.push(item);
-    });
-    console.log(arrayOfData);
-    if (!arrayOfData.length < 1) {
-      return (
-        <div className='homepage'>
-          <h1>Home Page</h1>
-          <form className='homepage-searchbar' onSubmit={this.handleSubmit}>
-            <input
-              type='text'
-              name='searchBar'
-              onChange={this.handleChange}
-            ></input>
-            <button type='submit'>Seach</button>
-          </form>
-          <div className='slider'>
-            <Carousel></Carousel>
-          </div>
-          <div className='most-reviewed-title'>
-            <h2>{arrayOfData[9].name}</h2>
-          </div>
-          <div className='most-reviewed'>
-            <img src='https://via.placeholder.com/200' alt='placeholder' />
-            <img src='https://via.placeholder.com/200' alt='placeholder' />
-            <img src='https://via.placeholder.com/200' alt='placeholder' />
-            <img src='https://via.placeholder.com/200' alt='placeholder' />
-            <img src='https://via.placeholder.com/200' alt='placeholder' />
-          </div>
-        </div>
-      );
-    }
-    return <div>Loading</div>;
-  }
->>>>>>> fd7db539d6db09f6b7179c620885185031da3f33
 }
 export default Home;
 // componentDidMount() {
