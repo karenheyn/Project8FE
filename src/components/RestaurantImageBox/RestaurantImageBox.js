@@ -4,7 +4,6 @@ import "./RestaurantImageBox.css";
 class RestaurantImageBox extends Component {
   constructor(props) {
     super(props);
-    console.log(this.props.data);
   }
 
   render() {

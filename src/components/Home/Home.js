@@ -5,6 +5,7 @@ import TopFive from "../TopFiveListings/TopFiveListings";
 import { array, arrayOf } from "prop-types";
 import RestaurantImageBox from "../../components/RestaurantImageBox/RestaurantImageBox";
 import Restaurant from "../Restaurant/Restaurant";
+import RestaurantDetail from "../RestaurantDetail/RestaurantDetail";
 
 class Home extends Component {
   constructor(props) {
@@ -66,6 +67,7 @@ class Home extends Component {
               );
             })}
           </div>
+          <RestaurantDetail imageUrl={arrayOfData[0].imageUrl} />
         </div>
       );
     }
