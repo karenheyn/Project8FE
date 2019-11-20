@@ -7,8 +7,11 @@ import Home from "../Home/Home";
 import SearchResults from "../SearchResults/SearchResults";
 import Restaurant from "../Restaurant/Restaurant";
 import "./App.css";
-
 let url = "https://dc-100-restaurants-db.herokuapp.com/restaurants";
+
+// jfhsdbvaeljhvbear;kjvb;keajrnvk;eajrnv;kaejnvk;ajnvk;nadvk
+
+// javlhbvlabefnvkjeawnkljabnvelkjabnvkljr
 
 class App extends Component {
 	constructor(props) {

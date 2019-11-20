@@ -1,67 +1,62 @@
 import React, { Component } from "react";
 import "./Home.css";
 import Carousel from "./Carousel/Carousel";
-import Form from "../../stories/Forms/Forms";
-import _ from "lodash";
+import TopFive from "../TopFiveListings/TopFiveListings";
+import { array, arrayOf } from "prop-types";
 
 class Home extends Component {
 	constructor(props) {
 		super(props);
-		console.log(this.props.data);
+		// console.log(this.props.data);
 		this.state = {
-			query: [],
+			searchBar: "",
 			data: this.props.data
 		};
-		this.handleSubmit = this.handleSubmit.bind(this);
 	}
-	handleSearch(e) {
-		let queryData = [];
-		if (e.target.value != "") {
-			this.state.data.forEach(function(restaurant) {
-				if (restaurant.toLowerCase().indexOf(e.target.value) != -1) {
-					if (queryData.length < 100) {
-						queryData.push(restaurant);
-					}
-				}
-			});
-		}
-		this.setState({ query: queryData });
-	}
+	handleInputChange = e => {
+		e.preventDefault();
+		this.setState({ searchBar: e.target.value });
+	};
 	handleSubmit = e => {
 		e.preventDefault();
 	};
+
 	render() {
 		let arrayOfData = [];
 		this.props.data.map(item => {
 			arrayOfData.push(item);
 		});
-		console.log(arrayOfData);
+		let ratings = [];
+		arrayOfData.map(item => {
+			if (item.rating > 4.6) {
+				ratings.push(item);
+			}
+		});
+		// {
+		// 	for (let i = 0; i < arrayOfData.length; i++)
+		// 		if (arra);
+		// }
+		// console.log(arrayOfData);
 		if (!arrayOfData.length < 1) {
 			return (
 				<div className='homepage'>
 					<h1>Home Page</h1>
-					<Form
-						type='search'
-						name='searchBar'
-						input='homepage-searchbar'
-						label='Search'
-						onChange={this.handleSearch}
-						onSubmit={this.handleSubmit}
-						className='homepage-searchbar'
-						search
-					/>
+					<form className='homepage-searchbar' onSubmit={this.handleSubmit}>
+						<input
+							type='text'
+							name='searchBar'
+							onChange={this.handleChange}
+						></input>
+						<button type='submit'>Seach</button>
+					</form>
 					<div className='slider'>
-						<Carousel></Carousel>
+						<Carousel className='carousel' data={arrayOfData}></Carousel>
 					</div>
 					<div className='most-reviewed-title'>
 						<h2>{arrayOfData[9].name}</h2>
 					</div>
 					<div className='most-reviewed'>
-						<img src='https://via.placeholder.com/200' alt='placeholder' />
-						<img src='https://via.placeholder.com/200' alt='placeholder' />
-						<img src='https://via.placeholder.com/200' alt='placeholder' />
-						<img src='https://via.placeholder.com/200' alt='placeholder' />
-						<img src='https://via.placeholder.com/200' alt='placeholder' />
+						<TopFive data={ratings} />
 					</div>
 				</div>
 			);
