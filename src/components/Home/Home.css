@@ -36,3 +36,16 @@
 	display: flex;
 	justify-content: space-between;
 }
+
+.top-rated-rests{
+	display: flex;
+	flex-direction: row;
+	flex-flow: wrap;
+	justify-content: space-between;
+	width: 90%;
+	height: 300px;
+	margin-left: 5%;
+	margin-right: 5%;
+	right: 10%;
+	
+}
