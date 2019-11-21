@@ -20,6 +20,7 @@
     box-shadow: 15px 15px 20px 1px rgba(0, 0, 0, 0.308);
     transform: translateY(-95%);
 }
+
 .detail-overlay{
     position: fixed;
     top: 0;
