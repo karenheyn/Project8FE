@@ -9,6 +9,7 @@ import Restaurant from "../Restaurant/Restaurant";
 import Catagories from "./Categories/Categories";
 import Category from "./Categories/Category/Category";
 import Search from "../Search/Search";
+import Listings from "../Alphebetical/Listings";
 import "./App.css";
 let url = "https://dc-100-restaurants-db.herokuapp.com/restaurants";
 
@@ -70,9 +71,7 @@ class App extends Component {
 							path='/'
 							render={() => <Home data={this.state.data} />}
 						/>
-						<Route path='/cuisine/:restaurants' exact component={Category} />
-						<Route path='/searchresults' exact component={SearchResults} />
-						<Route path='/results/:restaurant' exact component={Restaurant} />
+						{/* <Route path='/:restaurant' exact component={Restaurant} /> */}
 						<Route
 							exact
 							path='/cuisine'
@@ -85,6 +84,11 @@ class App extends Component {
 							render={() => <Search data={this.state.data} />}
 						/>
 					</main>
+					<Route
+						path='/listings'
+						exact
+						render={() => <Listings data={this.state.data} />}
+					/>
 				</div>
 			);
 		}
