@@ -12,36 +12,48 @@ class RestaurantDetail extends Component {
     super(props);
     this.state = {
       showReviews: false,
-      loading: true
+      loading: true,
+      reviewData: []
+      // thisRestaurantsReviews: []
     };
   }
 
-  getReviews = async () => {
-    const res = await axios.get(reviewsUrl);
-    console.log(res);
-    return res.data.map(({ _id, restaurantId, name, rating, review }) => {
-      return {
-        id: _id,
-        restReviewId: restaurantId,
-        reviewName: name,
-        reviewRating: rating,
-        reviewContent: review
-      };
-    });
-  };
+  componentDidMount() {
+    const getAllData = async () => {
+      await axios.get(reviewsUrl).then(res => {
+        let allReviewData = res.data;
+        console.log(allReviewData);
+        const reviews = allReviewData.map(item => {
+          const newReview = {};
+          newReview.id = item._id;
+          newReview.restReviewId = item.restaurantId;
+          newReview.reviewName = item.name;
+          newReview.reviewRating = item.rating;
+          newReview.reviewContent = item.review;
+          return newReview;
+        });
+        this.setState({ reviewData: reviews, loading: false });
+        console.log("got reviews");
+      });
+    };
+    // const createReviewsArray = async () => {
 
-  start = async () => {
-    const allReviews = await this.getReviews();
-    this.setState({ loading: false });
-    return allReviews;
-  };
+    // }
+    getAllData();
+  }
 
   render() {
-    let reviews = {};
-    reviews = this.start();
-    console.log(reviews);
+    console.log(this.state.reviewData);
     console.log(this.props.currentData);
-    if (this.state.loading)
+    const restReviewsArray = [];
+    this.state.reviewData.map(item => {
+      if (item.restReviewId === this.props.currentData.data._id) {
+        restReviewsArray.push(item);
+      }
+      console.log(restReviewsArray);
+    });
+
+    if (!this.state.loading && restReviewsArray.length >= 1) {
       return (
         <div className="rest-detail-box-container">
           <div
@@ -72,15 +84,20 @@ class RestaurantDetail extends Component {
               <h4>Phone Number: {this.props.currentData.data.phone}</h4>
               <h5>Rating: {this.props.currentData.data.rating}</h5>
               <Form type="comment" name="name" label="Name" comment />
-              {reviews.length >= 1 ? <h1>HI</h1> : <h1>NO</h1>}
-              <h1>REVIEWS WILL HOPEFULLY GO DOWN HERE</h1>
+              {this.state.reviewData.length >= 1 ? <h1>HI</h1> : <h1>NO</h1>}
+
               <div className="reviews-total-container">
-                <Review />
+                {restReviewsArray.map(item => {
+                  return <Review reviewProps={item} />;
+                })}
               </div>
             </div>
           </div>
         </div>
       );
+    } else {
+      return <div>LOADING</div>;
+    }
   }
 }
 export default RestaurantDetail;
