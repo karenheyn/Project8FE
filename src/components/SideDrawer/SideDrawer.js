@@ -20,9 +20,9 @@ const sideDrawer = props => {
           <li>Cuisine</li>
         </Link>
 
-        <li>
-          <a href='/'>Ipsum</a>
-        </li>
+        <Link to='/listings'>
+          <li>Listings</li>
+        </Link>
         <li>
           <a href='/'>Lorem</a>
         </li>
