@@ -10,7 +10,6 @@
 
 .homepage .slider {
 	border: 10px solid #094074;
-	z-index: -1;
 	border-radius: 4px;
 	max-width: 970px;
 }
