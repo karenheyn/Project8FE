@@ -27,11 +27,17 @@ class Home extends Component {
    * -Tyler
    */
   getClickedRestaurantData = data => {
-    console.log(data);
-    return data;
+    // console.log(data);
+    this.setState({ currentData: data, renderDetails: true });
+  };
+  closeClickedRestaurantDetails = doClose => {
+    if (doClose) {
+      this.setState({ renderDetails: false });
+    }
   };
 
   render() {
+    console.log(this.state.currentData);
     const { results } = this.state;
     let arrayOfData = [];
     this.props.data.map(item => {
@@ -57,9 +63,7 @@ class Home extends Component {
             {arrayOfData.slice(0, 5).map(item => {
               return (
                 <RestaurantImageBox
-                  imageUrl={item.imageUrl}
-                  name={item.name}
-                  yelpUrl={item.yelpUrl}
+                  data={item}
                   getClickedRestaurantData={this.getClickedRestaurantData.bind(
                     this
                   )}
@@ -68,7 +72,12 @@ class Home extends Component {
             })}
           </div>
           {this.state.renderDetails ? (
-            <RestaurantDetail data={arrayOfData} />
+            <RestaurantDetail
+              currentData={this.state.currentData}
+              closeClickedRestaurantDetails={this.closeClickedRestaurantDetails.bind(
+                this
+              )}
+            />
           ) : null}
         </div>
       );
