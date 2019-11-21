@@ -60,7 +60,7 @@ class Home extends Component {
           </div>
 
           <div className="top-rated-rests">
-            {arrayOfData.slice(50, 55).map(item => {
+            {arrayOfData.slice(20, 25).map(item => {
               return (
                 <RestaurantImageBox
                   data={item}

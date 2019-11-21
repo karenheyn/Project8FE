@@ -12,6 +12,12 @@ import Search from "../Search/Search";
 import "./App.css";
 let url = "https://dc-100-restaurants-db.herokuapp.com/restaurants";
 
+/**
+ * TODO
+ * ADD IMPORT RESTAURANTPAGEDETAILS HERE
+ * DYNAMICALLY RENDER PAGE DETAILS IN /RESTAURANT PATH
+ */
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -54,27 +60,27 @@ class App extends Component {
     }
     if (!this.state.loading) {
       return (
-        <div className='main-container'>
+        <div className="main-container">
           <Navbar drawerClickHandler={this.drawerToggleClickHandler} />
           <SideDrawer show={this.state.sideDrawerOpen} />
           {backdrop}
           <main>
             <Route
               exact
-              path='/'
+              path="/"
               render={() => <Home data={this.state.data} />}
             />
-            <Route path='/cuisine/:restaurants' exact component={Category} />
-            <Route path='/searchresults' exact component={SearchResults} />
+            <Route path="/cuisine/:restaurants" exact component={Category} />
+            <Route path="/searchresults" exact component={SearchResults} />
             {/* <Route path='/:restaurant' exact component={Restaurant} /> */}
             <Route
               exact
-              path='/cuisine'
+              path="/cuisine"
               render={() => <Catagories data={this.state.data} />}
             />
-            <Route path='/searchresults' component={SearchResults} />
+            <Route path="/searchresults" component={SearchResults} />
             <Route
-              path='/search'
+              path="/search"
               render={() => <Search data={this.state.data} />}
             />
           </main>
