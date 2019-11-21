@@ -47,7 +47,9 @@ class RestaurantDetail extends Component {
             <Form type="comment" name="name" label="Name" comment />
             {this.state.reviews.length >= 1 ? <h1>HI</h1> : <h1>NO</h1>}
             <h1>REVIEWS WILL HOPEFULLY GO DOWN HERE</h1>
-            <Review />
+            <div className="reviews-total-container">
+              <Review />
+            </div>
           </div>
         </div>
       </div>
