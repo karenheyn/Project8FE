@@ -9,8 +9,8 @@
     display: block;
     width: 100%;
     height: 300px;
-    object-fit: cover;
     
+    object-fit: cover;
     filter: brightness(70%);
     transition: filter 0.3s;
 }
@@ -23,7 +23,7 @@
     z-index: 100;
     position: relative;
     top: 90%;
-    font-size: 24px;
+    font-size: 20px;
     color: white;
     text-align: center;
     background-color: #094074c6;
