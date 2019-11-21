@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./RestaurantDetail.css";
 import "../Backdrop/Backdrop";
 import Form from "../../stories/Forms/Forms";
+import Review from "../../components/Review/Review";
 
 class RestaurantDetail extends Component {
   constructor(props) {
@@ -46,6 +47,7 @@ class RestaurantDetail extends Component {
             <Form type="comment" name="name" label="Name" comment />
             {this.state.reviews.length >= 1 ? <h1>HI</h1> : <h1>NO</h1>}
             <h1>REVIEWS WILL HOPEFULLY GO DOWN HERE</h1>
+            <Review />
           </div>
         </div>
       </div>
