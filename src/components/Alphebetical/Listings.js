@@ -1,15 +1,33 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import RestaurantImageBox from "../RestaurantImageBox/RestaurantImageBox";
+import RestaurantDetail from "../RestaurantDetail/RestaurantDetail";
 import "../App/Categories/Category/Category.css";
 class Categories extends Component {
   constructor(props) {
     super(props);
     this.state = {
       data: this.props.data,
-      filteredcuisineArray: []
+      filteredcuisineArray: [],
+      renderDetails: false,
+      currentData: {} //for getClickedRestaurantData - tyler
     };
   }
+
+  /**
+   * getClickedRestaurantData returns the data from a restaurant that is clicked
+   * -Tyler
+   */
+  getClickedRestaurantData = data => {
+    // console.log(data);
+    this.setState({ currentData: data, renderDetails: true });
+  };
+  closeClickedRestaurantDetails = doClose => {
+    if (doClose) {
+      this.setState({ renderDetails: false });
+    }
+  };
+
   render() {
     console.log(this.props.data);
     const myData = this.props.data.sort(function(a, b) {
@@ -19,14 +37,28 @@ class Categories extends Component {
     });
     console.log(myData);
     return (
-      <div className='wrapper-div'>
+      <div className="wrapper-div">
         {myData.map((item, i) => {
           return (
-            <div className='padding-control'>
-              <RestaurantImageBox key={i} data={item} />
+            <div className="padding-control">
+              <RestaurantImageBox
+                key={i}
+                data={item}
+                getClickedRestaurantData={this.getClickedRestaurantData.bind(
+                  this
+                )}
+              />
             </div>
           );
         })}
+        {this.state.renderDetails ? (
+          <RestaurantDetail
+            currentData={this.state.currentData}
+            closeClickedRestaurantDetails={this.closeClickedRestaurantDetails.bind(
+              this
+            )}
+          />
+        ) : null}
       </div>
     );
   }
