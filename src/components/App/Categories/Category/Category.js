@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-
+import RestaurantImageBox from "../../../RestaurantImageBox/RestaurantImageBox";
+import "./Category.css";
 const baseurl =
   "https://dc-100-restaurants-db.herokuapp.com/restaurants/category/";
 
@@ -20,10 +21,18 @@ class Brands extends Component {
       });
   }
   render() {
+    const data = [];
     console.log(this.state.data);
+    this.state.data.map(item => data.push(item));
     return (
-      <div>
-        <h1>poopidoopieshmoopie</h1>
+      <div className='wrapper-div'>
+        {data.map(item => {
+          return (
+            <div className='padding-control'>
+              <RestaurantImageBox data={item} />
+            </div>
+          );
+        })}
       </div>
     );
   }

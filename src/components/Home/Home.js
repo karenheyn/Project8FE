@@ -52,14 +52,14 @@ class Home extends Component {
     // console.log(arrayOfData);
     if (!arrayOfData.length < 1) {
       return (
-        <div className="homepage">
+        <div className='homepage'>
           <h1>Home Page</h1>
           <Searchbar data={arrayOfData} />
-          <div className="slider">
-            <Carousel className="carousel" data={arrayOfData}></Carousel>
+          <div className='slider'>
+            <Carousel className='carousel' data={arrayOfData}></Carousel>
           </div>
 
-          <div className="top-rated-rests">
+          <div className='top-rated-rests'>
             {arrayOfData.slice(50, 55).map(item => {
               return (
                 <RestaurantImageBox
