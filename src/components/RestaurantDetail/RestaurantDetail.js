@@ -3,6 +3,9 @@ import "./RestaurantDetail.css";
 import "../Backdrop/Backdrop";
 import Form from "../../stories/Forms/Forms";
 import Review from "../../components/Review/Review";
+import Axios from "axios";
+
+const reviewsUrl = "https://dc-100-restaurants-db.herokuapp.com/reviews";
 
 class RestaurantDetail extends Component {
   constructor(props) {
@@ -12,6 +15,10 @@ class RestaurantDetail extends Component {
       reviews: []
     };
   }
+
+  getReviews = async () => {
+    axios.get(reviewsUrl);
+  };
 
   render() {
     console.log(this.props.currentData);

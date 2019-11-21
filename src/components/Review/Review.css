@@ -1,7 +1,20 @@
 .review-box-container{
-    padding-top: 30px;
+    padding: 20px 10px 20px 10px;
     width: 90%;
-    height: 200px;
+    min-height: 200px;
+    max-height: 300px;
     border: 2px solid black;
     margin: 0 auto;
+}
+.restaurant-review-name{
+    font-size: 22px;
+}
+.restaurant-review-rating{
+    font-size: 18px;
+    color: rgb(201, 172, 8);
+}
+
+.restaurant-review-content{
+    font-size: 18px;
+    
 }
