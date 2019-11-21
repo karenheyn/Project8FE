@@ -8,7 +8,7 @@
 	background-color: #ffdd4a;
 	height: 50px;
 	align-items: center;
-	z-index: 0;
+	z-index: 2;
 }
 
 nav .navbar {
