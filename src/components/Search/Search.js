@@ -11,7 +11,7 @@ class Search extends Component {
 	}
 	handleInputChange = e => {
 		e.preventDefault();
-		this.setState({ searchBar: e.target.value });
+		this.setState({ searchBar: e.target.value.toLowerCase() });
 	};
 
 	handleSubmit = e => {
