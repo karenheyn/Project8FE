@@ -64,6 +64,7 @@ class Home extends Component {
               return (
                 <RestaurantImageBox
                   data={item}
+                  key={item.name}
                   getClickedRestaurantData={this.getClickedRestaurantData.bind(
                     this
                   )}
