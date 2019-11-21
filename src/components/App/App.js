@@ -6,6 +6,8 @@ import Backdrop from "../Backdrop/Backdrop";
 import Home from "../Home/Home";
 import SearchResults from "../SearchResults/SearchResults";
 import Restaurant from "../Restaurant/Restaurant";
+import Catagories from "./Categories/Categories";
+import Category from "./Categories/Category/Category";
 import Search from "../Search/Search";
 import "./App.css";
 let url = "https://dc-100-restaurants-db.herokuapp.com/restaurants";
@@ -62,15 +64,17 @@ class App extends Component {
 							path='/'
 							render={() => <Home data={this.state.data} />}
 						/>
+						<Route path='/cuisine/:restaurants' exact component={Category} />
+						<Route path='/searchresults' exact component={SearchResults} />
+						{/* <Route path='/:restaurant' exact component={Restaurant} /> */}
 						<Route
-							path='/results'
-							component={SearchResults}
-							data={this.state.results}
+							exact
+							path='/cuisine'
+							render={() => <Catagories data={this.state.data} />}
 						/>
-						<Route exact path='/:restaurant' component={Restaurant} />
+						<Route path='/searchresults' component={SearchResults} />
 						<Route
 							path='/search'
-							exact
 							render={() => <Search data={this.state.data} />}
 						/>
 					</main>

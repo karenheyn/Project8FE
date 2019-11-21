@@ -1,4 +1,5 @@
-import React, { Component, Redirect } from "react";
+import React, { Component } from "react";
+import { Switch, Redirect } from "react-router-dom";
 import Results from "../SearchResults/SearchResults";
 class Search extends Component {
 	constructor(props) {
@@ -28,7 +29,16 @@ class Search extends Component {
 	};
 	render() {
 		if (this.state.submitted) {
-			return <Results results={this.state.results} />;
+			return (
+				<Switch>
+					<Redirect
+						to={{
+							pathname: "/results",
+							state: { results: this.state.results }
+						}}
+					/>
+				</Switch>
+			);
 		}
 		return (
 			<div>
@@ -44,5 +54,4 @@ class Search extends Component {
 		);
 	}
 }
-
 export default Search;

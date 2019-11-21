@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router";
 import "./SearchResults.css";
+import axios from "axios";
 
 class SearchResults extends Component {
 	constructor(props) {
