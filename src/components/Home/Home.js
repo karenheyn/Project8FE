@@ -18,7 +18,6 @@ class Home extends Component {
       data: this.props.data,
       renderDetails: false
     };
-    this.handleInputChange = this.handleInputChange.bind(this);
   }
   render() {
     const { results } = this.state;
