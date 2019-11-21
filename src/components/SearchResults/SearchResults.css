@@ -1,0 +1,17 @@
+.result-restaurant {
+	display: flex;
+	margin: 40px;
+}
+.result-restaurant .restaurant-image-container {
+	width: 480px;
+	max-height: 400px;
+	position: relative;
+}
+.result-restaurant .restaurant-image img {
+	position: absolute;
+	object-fit: scale-down;
+	width: 45%;
+	height: initial;
+	border: 2px solid black;
+	margin: 15px;
+}

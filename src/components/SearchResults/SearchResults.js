@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router";
 import "./SearchResults.css";
-import axios from "axios";
+import RestaurantImageBox from "../RestaurantImageBox/RestaurantImageBox";
+import "../RestaurantImageBox/RestaurantImageBox.css";
 
 class SearchResults extends Component {
 	constructor(props) {
@@ -12,11 +12,20 @@ class SearchResults extends Component {
 	}
 
 	render() {
-		console.log(this.state.passedData);
-
+		let dataResults = [];
+		this.state.passedData.map(item => {
+			dataResults.push(item);
+		});
+		console.log(dataResults);
 		return (
 			<div>
-				<h1>THESE ARE THE FUCKING RESULTS!!!</h1>
+				{dataResults.map(item => {
+					return (
+						<div className='result-restaurant'>
+							<RestaurantImageBox data={item} />
+						</div>
+					);
+				})}
 			</div>
 		);
 	}
