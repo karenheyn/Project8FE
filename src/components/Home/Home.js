@@ -7,16 +7,21 @@ import RestaurantImageBox from "../../components/RestaurantImageBox/RestaurantIm
 import Restaurant from "../Restaurant/Restaurant";
 import RestaurantDetail from "../RestaurantDetail/RestaurantDetail";
 
+import SearchResults from "../SearchResults/SearchResults";
+let namesArray = [];
 class Home extends Component {
   constructor(props) {
     super(props);
+
     // console.log(this.props.data);
     this.state = {
       data: this.props.data,
       renderDetails: false
     };
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
   render() {
+    const { results } = this.state;
     let arrayOfData = [];
     this.props.data.map(item => {
       arrayOfData.push(item);
