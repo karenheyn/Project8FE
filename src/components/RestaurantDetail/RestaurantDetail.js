@@ -1,12 +1,15 @@
 import React, { Component } from "react";
 import "./RestaurantDetail.css";
 import "../Backdrop/Backdrop";
-import Backdrop from "../Backdrop/Backdrop";
+import Form from "../../stories/Forms/Forms";
 
 class RestaurantDetail extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      showReviews: false,
+      reviews: []
+    };
   }
 
   render() {
@@ -40,6 +43,8 @@ class RestaurantDetail extends Component {
             <a href={this.props.currentData.data.yelpUrl}>Yelp Url</a>
             <h4>Phone Number: {this.props.currentData.data.phone}</h4>
             <h5>Rating: {this.props.currentData.data.rating}</h5>
+            <Form type="comment" name="name" label="Name" comment />
+            {this.state.reviews.length >= 1 ? <h1>HI</h1> : <h1>NO</h1>}
             <h1>REVIEWS WILL HOPEFULLY GO DOWN HERE</h1>
           </div>
         </div>

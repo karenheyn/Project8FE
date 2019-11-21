@@ -14,12 +14,13 @@
     flex-direction: column;
     z-index: 100;
     width: 60%;
-    height: 1000px;
+    height: 800px;
     border: 2px solid black;
     border-radius: 8px;
     margin: 0 auto;
     background-color: rgba(245, 245, 245, 0.968);
     box-shadow: 15px 15px 20px 1px rgba(0, 0, 0, 0.308);
+    overflow: scroll;
     
 }
 

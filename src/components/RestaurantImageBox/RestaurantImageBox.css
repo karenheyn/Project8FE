@@ -1,15 +1,15 @@
 .restaurant-image-container{
     width: 300px;
     height: 300px;
-    border: 5px solid white;
-    
+    border: 5px solid white;  
 }
 
 .rest-image{
     display: block;
     width: 100%;
     height: 300px;
-    
+    padding-top: 10px;
+    padding-bottom: 10px;
     object-fit: cover;
     filter: brightness(70%);
     transition: filter 0.3s;
@@ -23,7 +23,7 @@
     z-index: 100;
     position: relative;
     top: 90%;
-    font-size: 20px;
+    font-size: 16px;
     color: white;
     text-align: center;
     background-color: #094074c6;
