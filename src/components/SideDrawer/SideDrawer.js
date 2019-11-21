@@ -26,9 +26,9 @@ const sideDrawer = props => {
         <li>
           <a href='/'>Lorem</a>
         </li>
-        <li>
-          <a href='/'>Ipsum</a>
-        </li>
+        <Link to='/About'>
+          <li>About</li>
+        </Link>
       </ul>
     </nav>
   );

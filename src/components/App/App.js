@@ -11,6 +11,7 @@ import Category from "./Categories/Category/Category";
 import Search from "../Search/Search";
 import Listings from "../Alphebetical/Listings";
 import "./App.css";
+import About from "../About/About";
 let url = "https://dc-100-restaurants-db.herokuapp.com/restaurants";
 
 /**
@@ -91,6 +92,7 @@ class App extends Component {
             exact
             render={() => <Listings data={this.state.data} />}
           />
+          <Route path='/about' exact component={About} />
         </div>
       );
     }
