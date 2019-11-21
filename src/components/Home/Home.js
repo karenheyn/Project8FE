@@ -16,11 +16,28 @@ class Home extends Component {
     // console.log(this.props.data);
     this.state = {
       data: this.props.data,
-      renderDetails: false
+      renderDetails: false,
+      currentData: {} //for getClickedRestaurantData - tyler
     };
-    this.handleInputChange = this.handleInputChange.bind(this);
+    // this.handleInputChange = this.handleInputChange.bind(this);
   }
+
+  /**
+   * getClickedRestaurantData returns the data from a restaurant that is clicked
+   * -Tyler
+   */
+  getClickedRestaurantData = data => {
+    // console.log(data);
+    this.setState({ currentData: data, renderDetails: true });
+  };
+  closeClickedRestaurantDetails = doClose => {
+    if (doClose) {
+      this.setState({ renderDetails: false });
+    }
+  };
+
   render() {
+    console.log(this.state.currentData);
     const { results } = this.state;
     let arrayOfData = [];
     this.props.data.map(item => {
@@ -35,26 +52,33 @@ class Home extends Component {
     // console.log(arrayOfData);
     if (!arrayOfData.length < 1) {
       return (
-        <div className='homepage'>
+        <div className="homepage">
           <h1>Home Page</h1>
           <Searchbar data={arrayOfData} />
-          <div className='slider'>
-            <Carousel className='carousel' data={arrayOfData}></Carousel>
+          <div className="slider">
+            <Carousel className="carousel" data={arrayOfData}></Carousel>
           </div>
 
-          <div className='top-rated-rests'>
-            {arrayOfData.slice(0, 5).map(item => {
+          <div className="top-rated-rests">
+            {arrayOfData.slice(50, 55).map(item => {
               return (
                 <RestaurantImageBox
-                  imageUrl={item.imageUrl}
-                  name={item.name}
-                  yelpUrl={item.yelpUrl}
+                  data={item}
+                  key={item.name}
+                  getClickedRestaurantData={this.getClickedRestaurantData.bind(
+                    this
+                  )}
                 />
               );
             })}
           </div>
           {this.state.renderDetails ? (
-            <RestaurantDetail data={arrayOfData} />
+            <RestaurantDetail
+              currentData={this.state.currentData}
+              closeClickedRestaurantDetails={this.closeClickedRestaurantDetails.bind(
+                this
+              )}
+            />
           ) : null}
         </div>
       );
