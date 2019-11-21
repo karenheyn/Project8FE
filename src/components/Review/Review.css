@@ -5,6 +5,7 @@
     max-height: 300px;
     border: 2px solid black;
     margin: 0 auto;
+    margin-top: 20px;
 }
 .restaurant-review-name{
     font-size: 22px;
