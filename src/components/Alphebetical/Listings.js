@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import RestaurantImageBox from "../RestaurantImageBox/RestaurantImageBox";
+import "../App/Categories/Category/Category.css";
 class Categories extends Component {
   constructor(props) {
     super(props);
@@ -18,10 +19,14 @@ class Categories extends Component {
     });
     console.log(myData);
     return (
-      <div>
-        {/* {this.props.data.map((item, i) => {
-          return <RestaurantImageBox key={i} data={item} />;
-        })} */}
+      <div className='wrapper-div'>
+        {myData.map((item, i) => {
+          return (
+            <div className='padding-control'>
+              <RestaurantImageBox key={i} data={item} />
+            </div>
+          );
+        })}
       </div>
     );
   }
