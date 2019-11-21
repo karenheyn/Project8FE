@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { Switch, Redirect } from "react-router-dom";
-import Results from "../SearchResults/SearchResults";
+import { Redirect } from "react-router-dom";
 class Search extends Component {
 	constructor(props) {
 		super(props);
@@ -30,14 +29,12 @@ class Search extends Component {
 	render() {
 		if (this.state.submitted) {
 			return (
-				<Switch>
-					<Redirect
-						to={{
-							pathname: "/results",
-							state: { results: this.state.results }
-						}}
-					/>
-				</Switch>
+				<Redirect
+					to={{
+						pathname: "/results",
+						state: { results: this.state.results }
+					}}
+				/>
 			);
 		}
 		return (

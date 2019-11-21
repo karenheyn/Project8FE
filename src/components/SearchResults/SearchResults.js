@@ -6,14 +6,17 @@ import axios from "axios";
 class SearchResults extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {};
+		this.state = {
+			passedData: this.props.location.state.results
+		};
 	}
 
 	render() {
-		console.log(this.props);
+		console.log(this.state.passedData);
+
 		return (
 			<div>
-				<h1>Results</h1>
+				<h1>THESE ARE THE FUCKING RESULTS!!!</h1>
 			</div>
 		);
 	}
