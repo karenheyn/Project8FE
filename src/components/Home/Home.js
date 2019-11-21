@@ -16,10 +16,21 @@ class Home extends Component {
     // console.log(this.props.data);
     this.state = {
       data: this.props.data,
-      renderDetails: false
+      renderDetails: false,
+      currentData: {} //for getClickedRestaurantData - tyler
     };
-    this.handleInputChange = this.handleInputChange.bind(this);
+    // this.handleInputChange = this.handleInputChange.bind(this);
   }
+
+  /**
+   * getClickedRestaurantData returns the data from a restaurant that is clicked
+   * -Tyler
+   */
+  getClickedRestaurantData = data => {
+    console.log(data);
+    return data;
+  };
+
   render() {
     const { results } = this.state;
     let arrayOfData = [];
@@ -49,6 +60,9 @@ class Home extends Component {
                   imageUrl={item.imageUrl}
                   name={item.name}
                   yelpUrl={item.yelpUrl}
+                  getClickedRestaurantData={this.getClickedRestaurantData.bind(
+                    this
+                  )}
                 />
               );
             })}
