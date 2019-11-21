@@ -53,7 +53,7 @@ class RestaurantDetail extends Component {
       console.log(restReviewsArray);
     });
 
-    if (!this.state.loading && restReviewsArray.length >= 1) {
+    if (!this.state.loading) {
       return (
         <div className="rest-detail-box-container">
           <div
@@ -84,7 +84,11 @@ class RestaurantDetail extends Component {
               <h4>Phone Number: {this.props.currentData.data.phone}</h4>
               <h5>Rating: {this.props.currentData.data.rating}</h5>
               <Form type="comment" name="name" label="Name" comment />
-              {this.state.reviewData.length >= 1 ? <h1>HI</h1> : <h1>NO</h1>}
+              {this.state.reviewData.length >= 1 ? (
+                <h1>No Reviews!</h1>
+              ) : (
+                <h1>NO</h1>
+              )}
 
               <div className="reviews-total-container">
                 {restReviewsArray.map(item => {
