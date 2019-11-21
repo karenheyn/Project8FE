@@ -1,20 +1,25 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router";
 import "./SearchResults.css";
 import axios from "axios";
 
 class SearchResults extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-    console.log(this.props);
-  }
+	constructor(props) {
+		super(props);
+		this.state = {
+			passedData: this.props.location.state.results
+		};
+	}
 
-  render() {
-    return (
-      <div>
-        <h1>Results</h1>
-      </div>
-    );
-  }
+	render() {
+		console.log(this.state.passedData);
+
+		return (
+			<div>
+				<h1>THESE ARE THE FUCKING RESULTS!!!</h1>
+			</div>
+		);
+	}
 }
+
 export default SearchResults;
