@@ -62,10 +62,15 @@ class App extends Component {
 							path='/'
 							render={() => <Home data={this.state.data} />}
 						/>
-						<Route path='/searchresults' component={SearchResults} />
+						<Route
+							path='/results'
+							component={SearchResults}
+							data={this.state.results}
+						/>
 						<Route exact path='/:restaurant' component={Restaurant} />
 						<Route
 							path='/search'
+							exact
 							render={() => <Search data={this.state.data} />}
 						/>
 					</main>

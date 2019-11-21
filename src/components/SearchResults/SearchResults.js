@@ -1,14 +1,15 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router";
 import "./SearchResults.css";
 
 class SearchResults extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {};
-		console.log(this.props);
 	}
 
 	render() {
+		console.log(this.props);
 		return (
 			<div>
 				<h1>Results</h1>
@@ -16,4 +17,5 @@ class SearchResults extends Component {
 		);
 	}
 }
+
 export default SearchResults;

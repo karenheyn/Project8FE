@@ -1,11 +1,12 @@
 import React, { Component, Redirect } from "react";
-import { withRouter } from "react-router";
+import Results from "../SearchResults/SearchResults";
 class Search extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			searchBar: "",
-			results: []
+			results: [],
+			submitted: false
 		};
 	}
 	handleInputChange = e => {
@@ -20,26 +21,26 @@ class Search extends Component {
 				item.name.toLowerCase().includes(this.state.searchBar) ||
 				item.categories[0].toLowerCase().includes(this.state.searchBar)
 			) {
-				console.log(item);
+				return this.state.results.push(item);
 			}
 		});
+		this.setState({ submitted: true });
 	};
-	componentDidUpdate(prevProps, prevState) {
-		const { history } = this.props;
-		if (prevState.results !== this.state.results) {
-			history.push("/SearchResults");
-		}
-	}
 	render() {
+		if (this.state.submitted) {
+			return <Results results={this.state.results} />;
+		}
 		return (
-			<form className='homepage-searchbar' onSubmit={this.handleSubmit}>
-				<input
-					type='text'
-					name='searchBar'
-					onChange={this.handleInputChange}
-				></input>
-				<button type='submit'>Seach</button>
-			</form>
+			<div>
+				<form className='homepage-searchbar' onSubmit={this.handleSubmit}>
+					<input
+						type='text'
+						name='searchBar'
+						onChange={this.handleInputChange}
+					></input>
+					<button type='submit'>Seach</button>
+				</form>
+			</div>
 		);
 	}
 }
