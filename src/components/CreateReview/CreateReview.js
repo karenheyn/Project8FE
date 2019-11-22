@@ -17,7 +17,10 @@ class CreateReview extends Component {
   };
   changeHandler = event => {
     this.setState({ [event.target.name]: event.target.value });
+
     console.log(this.state.name);
+    console.log(this.state.review);
+    console.log(this.state.rating);
   };
 
   render() {
@@ -25,6 +28,8 @@ class CreateReview extends Component {
       <Form
         type="comment"
         name={this.state.name}
+        review={this.state.review}
+        rating={this.state.rating}
         label="Name"
         comment
         getReviewData={this.getReviewData.bind(this)}
