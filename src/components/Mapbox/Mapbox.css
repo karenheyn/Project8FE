@@ -14,7 +14,11 @@
 }
 .mapbox {
 	border: 3px solid black;
+	height: 350px;
+	overflow: hidden;
 }
 .mapbox div {
 	width: 100% !important;
+}
+@media only screen and (max-width: 557) {
 }
