@@ -2,7 +2,6 @@
 	height: 400px;
 	object-fit: cover;
 }
-
 .carousel-control-next-icon,
 .carousel-control-previous-icon {
 	display: none;
@@ -12,4 +11,19 @@
 	border: 10px solid #094074;
 	border-radius: 4px;
 	max-width: 970px;
+}
+@media only screen and (max-width: 685px) {
+	.w-100,
+	.carousel-inner {
+		height: 283px;
+	}
+}
+@media only screen and (max-width: 420px) {
+	.w-100,
+	.carousel-inner {
+		height: 232px;
+	}
+	.main-container {
+		padding: 10px 0;
+	}
 }
