@@ -14,7 +14,7 @@ class Review extends Component {
           {this.props.reviewProps.reviewName}
         </h1>
         <h1 className="restaurant-review-rating">
-          {this.props.reviewProps.reviewRating}
+          {this.props.reviewProps.reviewRating} / 5
         </h1>
         <h4 className="restaurant-review-content">
           {this.props.reviewProps.reviewContent}
