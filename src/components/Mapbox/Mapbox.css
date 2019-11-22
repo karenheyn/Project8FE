@@ -1,0 +1,13 @@
+.fa-crosshairs {
+	width: 30px;
+	height: auto;
+	margin-right: 10px;
+}
+.restaurant-marker {
+	font-weight: bolder;
+	font-size: 15px;
+	background-color: black;
+	color: white;
+	padding: 4px;
+	border-radius: 7px;
+}
