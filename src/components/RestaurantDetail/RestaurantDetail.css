@@ -45,23 +45,38 @@
 	object-fit: cover;
 }
 
-.rest-details-data {
+.rest-data-details {
 	top: 20px;
 	position: relative;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	padding-left: 30px;
+	padding: 0 30px;
 }
 .rest-data-name {
-	font-family: "Alata", sans-serif;
+	text-align: center;
 	font-size: 42px;
 }
-.rest-data-location {
-	font-family: "Alata", sans-serif;
-	font-size: 22px;
+.rest.data-content {
+	text-align: center;
 }
-
+.rest-data-location,
+.rest-data-content,
+.rest-data-categories {
+	font-size: 22px;
+	margin-bottom: 10px;
+}
+.rest-data-info {
+	display: flex;
+	justify-content: space-around;
+	margin: 40px 0;
+}
+.rest-data-city {
+	margin-left: 7px;
+}
+.rest-data-location,
+.rest-data-content,
+.rest-data-name,
 h1,
 h2,
 h3,
@@ -74,4 +89,71 @@ h6 {
 .reviews-total-container {
 	padding-top: 50px;
 	padding-bottom: 30px;
+}
+
+@media only screen and (max-width: 1330px) {
+	.rest-data-name {
+		font-size: 3rem;
+	}
+	.rest-data-location,
+	.rest-data-content,
+	.rest-data-categories {
+		font-size: 1rem;
+	}
+	.rest-data-description h2 {
+		font-size: 1.5rem;
+	}
+}
+@media only screen and (max-width: 1058px) {
+	.rest-data-description h2 {
+		font-size: 1.2rem;
+	}
+}
+@media only screen and (max-width: 1126px) {
+	.rest-data-catagories {
+		width: 125px;
+	}
+}
+@media only screen and (max-width: 946px) {
+	.rest-data-info {
+		flex-direction: column;
+	}
+}
+@media only screen and (max-width: 882px) {
+	.rest-data-description h2 {
+		font-size: 3rem;
+		margin-top: 22px;
+	}
+	.rest-data-content,
+	.rest-data-categories li {
+		font-size: 1.6rem;
+	}
+	.rest-data-name {
+		font-size: 5rem;
+	}
+}
+@media only screen and (max-width: 714px) {
+	.rest-data-description h2 {
+		font-size: 2rem;
+	}
+	.rest-data-content,
+	.rest-data-categories li {
+		font-size: 1rem;
+	}
+	.rest-data-name {
+		font-size: 3rem;
+	}
+}
+@media only screen and (max-width: 526px) {
+	.rest-data-description h2 {
+		font-size: 2rem;
+		margin-top: 22px;
+	}
+	.rest-data-content,
+	.rest-data-categories li {
+		font-size: 1rem;
+	}
+	.rest-data-name {
+		font-size: 2rem;
+	}
 }

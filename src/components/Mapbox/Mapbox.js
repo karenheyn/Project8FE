@@ -29,10 +29,10 @@ export default function App(props) {
 					latitude={props.coordinates.coordinates.latitude}
 					longitude={props.coordinates.coordinates.longitude}
 				>
-					<div className='restaurant-marker'>
+					<span className='restaurant-marker'>
 						<FontAwesomeIcon icon='crosshairs' />
 						<span>{props.coordinates.name}</span>
-					</div>
+					</span>
 				</Marker>
 			</ReactMapGL>
 		</div>
