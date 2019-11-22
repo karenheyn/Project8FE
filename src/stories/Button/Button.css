@@ -18,8 +18,10 @@ button {
 .button-search {
     width: 43px;
     padding: 4px;
+    line-height: 1px;
+    ;
 }
 
-.button-edit{
+.button-edit {
     background-color: #ECA72C;
 }

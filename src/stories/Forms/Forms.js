@@ -17,7 +17,7 @@ const Form = props => {
           placeholder={props.label}
           onChange={props.onChange}
         ></input>
-        <Button classList="search" type="search" search></Button>
+        <Button classList='search' type='search' search></Button>
       </form>
     );
   }
@@ -26,40 +26,40 @@ const Form = props => {
       <form className={classList} onSubmit={props.submitHandler}>
         <input
           className={props.name}
-          placeholder="Name"
-          name="name"
+          placeholder='Name'
+          name='name'
           value={props.name}
           onChange={props.changeHandler}
         ></input>
-        <div className="rating-div">
-          <label for="rating">rating:</label>
+        <div className='rating-div'>
+          <label for='rating'>rating:</label>
           <select
-            name="rating"
+            name='rating'
             value={props.rating}
             onChange={props.changeHandler}
-            className="rating"
+            className='rating'
           >
-            <option value="1">1</option>
-            <option value="1.5">1.5</option>
-            <option value="2">2</option>
-            <option value="2.5">2.5</option>
-            <option value="3">3</option>
-            <option value="3.5">3.5</option>
-            <option value="4">4</option>
-            <option value="4.5">4.5</option>
-            <option value="5">5</option>
+            <option value='1'>1</option>
+            <option value='1.5'>1.5</option>
+            <option value='2'>2</option>
+            <option value='2.5'>2.5</option>
+            <option value='3'>3</option>
+            <option value='3.5'>3.5</option>
+            <option value='4'>4</option>
+            <option value='4.5'>4.5</option>
+            <option value='5'>5</option>
           </select>
         </div>
         <textarea
-          type="text"
-          className="review"
-          placeholder="write your review"
-          name="review"
+          type='text'
+          className='review'
+          placeholder='write your review'
+          name='review'
           value={props.review}
           onChange={props.changeHandler}
         ></textarea>
 
-        <Button label="Submit" type="sumbit"></Button>
+        <Button label='Submit' type='sumbit'></Button>
       </form>
     );
   }
