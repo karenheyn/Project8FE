@@ -7,10 +7,20 @@ const sideDrawer = props => {
   if (props.show) {
     drawerClasses = "side-drawer open";
   }
+  let imgClasses = "round-img";
+  if (props.show) {
+    imgClasses = "round-img-go";
+  }
   return (
     <nav className={drawerClasses}>
       <div className='profile-img'>
-        <img className='round-img' src={Plate} alt='placeholder for profile' />
+        <a className='image-link' href='/'>
+          <img
+            className={imgClasses}
+            src={Plate}
+            alt='placeholder for profile'
+          />
+        </a>
         <p className='menu'>Menu</p>
       </div>
       <ul className='nav-list'>
