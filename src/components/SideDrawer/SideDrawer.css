@@ -79,9 +79,10 @@
 
 }
 
-.round-img:hover {
+.round-img-go {
 	animation: spin 1.5s forwards
 }
+
 
 @keyframes spin {
 	0% {
