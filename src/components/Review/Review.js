@@ -21,6 +21,10 @@ class Review extends Component {
     this.setState({ edit: false });
     console.log("edit complete");
   };
+
+  deleteReview = () => {
+    return "true";
+  };
   render() {
     return (
       <div className="review-box-container">
@@ -38,6 +42,13 @@ class Review extends Component {
             label="Edit"
             type="edit"
             onMouseDown={this.startEdit.bind(this)}
+          />
+        </div>
+        <div className="delete-button-container">
+          <Button
+            label="Delete"
+            type="delete"
+            onMouseDown={this.deleteReview.bind(this)}
           />
         </div>
         {this.state.edit ? (
