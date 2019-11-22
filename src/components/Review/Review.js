@@ -1,12 +1,21 @@
 import React, { Component } from "react";
+import Button from "../../stories/Button/Button";
 import "./Review.css";
-
+import "../../stories/Button/Button.css";
+import CreateReview from "../CreateReview/CreateReview";
 class Review extends Component {
   constructor(props) {
     super(props);
-    console.log(props);
+    // console.log(props);
+    this.state = {
+      edit: false
+    };
   }
 
+  startEdit = () => {
+    this.setState({ edit: true });
+    console.log("start edit");
+  };
   render() {
     return (
       <div className="review-box-container">
@@ -19,6 +28,20 @@ class Review extends Component {
         <h4 className="restaurant-review-content">
           {this.props.reviewProps.reviewContent}
         </h4>
+        <div className="review-button-container">
+          <Button
+            label="Edit"
+            type="edit"
+            onMouseDown={this.startEdit.bind(this)}
+          />
+        </div>
+        {this.state.edit ? (
+          <CreateReview
+            restaurantId={this.props.currentData.data._id}
+            afterCreate={this.getAllData}
+            editing={true}
+          />
+        ) : null}
       </div>
     );
   }

@@ -13,10 +13,15 @@ class RestaurantDetail extends Component {
     this.state = {
       showReviews: false,
       loading: true,
-      reviewData: []
-      // thisRestaurantsReviews: []
+      reviewData: [],
+      editReviewId: ""
     };
   }
+
+  getReviewId = data => {
+    this.setState({ editReviewId: data });
+    console.log(data);
+  };
   getAllData = async () => {
     await axios.get(reviewsUrl).then(res => {
       let allReviewData = res.data;
@@ -82,13 +87,19 @@ class RestaurantDetail extends Component {
               <CreateReview
                 restaurantId={this.props.currentData.data._id}
                 afterCreate={this.getAllData}
+                getReviewId={this.getReviewId}
               />
               {restReviewsArray.length === 0 ? <h1>No Reviews!</h1> : null}
 
               <div className="reviews-total-container">
                 {restReviewsArray.map(item => {
                   return (
-                    <Review reviewProps={item} afterCreate={this.getAllData} />
+                    <Review
+                      reviewProps={item}
+                      afterCreate={this.getAllData}
+                      restaurantId={this.props.currentData.data._id}
+                      currentData={this.props.currentData}
+                    />
                   );
                 })}
               </div>

@@ -20,6 +20,10 @@ const Button = props => {
       </button>
     );
   }
-  return <button className={classList}>{props.label}</button>;
+  return (
+    <button onMouseDown={props.onMouseDown} className={classList}>
+      {props.label}
+    </button>
+  );
 };
 export default Button;

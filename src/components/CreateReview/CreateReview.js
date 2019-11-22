@@ -6,12 +6,14 @@ import axios from "axios";
 class CreateReview extends Component {
   constructor(props) {
     super(props);
+    console.log(this.props);
     this.state = {
       restaurantId: this.props.restaurantId,
       name: "",
       rating: 0,
       review: "",
-      reviewSubmitted: false
+      reviewSubmitted: false,
+      reviewId: ""
     };
     console.log(this.state.restaurantId);
   }
@@ -28,20 +30,24 @@ class CreateReview extends Component {
   submitHandler = event => {
     event.preventDefault();
     console.log(this.state);
-    axios
-      .post(
-        "https://dc-100-restaurants-db.herokuapp.com/reviews/create/",
-        this.state
-      )
+    if (!this.props.editing) {
+      axios
+        .post(
+          "https://dc-100-restaurants-db.herokuapp.com/reviews/create/",
+          this.state
+        )
 
-      .then(response => {
-        console.log(response);
-        this.setState({ reviewSubmitted: true });
-        this.props.afterCreate();
-      })
-      .catch(error => {
-        console.log(error);
-      });
+        .then(response => {
+          console.log(response.data._id);
+          this.setState({ reviewSubmitted: true, reviewId: response.data._id });
+          this.props.getReviewId(response.data._id);
+          this.props.afterCreate();
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    } else if (this.props.editing) {
+    }
   };
 
   render() {
