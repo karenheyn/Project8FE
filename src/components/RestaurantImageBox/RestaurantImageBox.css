@@ -1,34 +1,33 @@
 .restaurant-image-container {
-    width: 300px;
-    height: 300px;
-    border: 5px solid white;  
+	width: 300px;
+	height: 300px;
+	border: 5px solid white;
 }
 
 .rest-image {
-    display: block;
-    width: 100%;
-    height: 300px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    object-fit: cover;
-    filter: brightness(70%);
-    transition: filter 0.3s;
+	display: block;
+	width: 100%;
+	height: 300px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	object-fit: cover;
+	filter: brightness(70%);
+	transition: filter 0.3s;
 }
 
 .rest-image:hover {
-    filter: brightness(100%);
+	filter: brightness(100%);
 }
 
 .rest-image-name {
-    font-family: 'Alata', sans-serif;
-    z-index: 1;
-    position: relative;
-    top: 90%;
-    font-size: 20px;
-    text-overflow: ellipsis;
-    width: 100;
-    
-    color: white;
-    text-align: center;
-    background-color: #094074c6;
+	font-family: "Alata", sans-serif;
+	z-index: 100;
+	padding: 10px 0;
+	position: relative;
+	top: 90%;
+	font-size: 16px;
+	color: white;
+	text-align: center;
+	background-color: #094074c6;
 }
+

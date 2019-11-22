@@ -132,6 +132,11 @@ h6 {
 		font-size: 5rem;
 	}
 }
+@media only screen and (max-width: 754px) {
+	.rest-detail-container {
+		width: 77%;
+	}
+}
 @media only screen and (max-width: 714px) {
 	.rest-data-description h2 {
 		font-size: 2rem;

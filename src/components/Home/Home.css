@@ -37,15 +37,35 @@
 	justify-content: space-between;
 }
 
-.top-rated-rests{
+.top-rated-rests {
 	display: flex;
 	flex-direction: row;
 	flex-flow: wrap;
-	justify-content: space-between;
+	justify-content: center;
 	width: 90%;
 	height: 300px;
 	margin-left: 5%;
 	margin-right: 5%;
 	right: 10%;
-	
+}
+@media only screen and (max-width: 768px) {
+	.homepage-searchbar {
+		width: 87%;
+	}
+	.nav-items {
+		display: none;
+	}
+}
+@media only screen and (max-width: 375px) {
+	.homepage-searchbar {
+		width: 100%;
+	}
+	.homepage-searchbar button {
+		width: 35%;
+	}
+}
+@media only screen and (max-width: 320px) {
+	.homepage-searchbar button {
+		width: 44%;
+	}
 }
