@@ -16,7 +16,7 @@
 	margin: 0 auto;
 }
 
-input {
+.homepage-searchbar input {
 	border: 2px solid rgba(128, 128, 128, 0.146);
 	border-right: none;
 	height: 61px;
