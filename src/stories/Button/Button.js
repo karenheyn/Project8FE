@@ -20,8 +20,12 @@ const Button = props => {
       </button>
     );
   }
+  console.log(props);
   return (
-    <button onMouseDown={props.onMouseDown} className={classList}>
+    <button
+      onMouseDown={props.onMouseDownEdit || props.onMouseDownDelete}
+      className={classList}
+    >
       {props.label}
     </button>
   );
