@@ -35,12 +35,8 @@ const About = () => {
       </div>
       <div className="about-container">
         <h4 className="about-words-top">
-          <span className="about-big-d">D</span>e
-          <span className="about-big-l">L</span>icious is here to help you find
-          the best place to eat when you're in D.C. Are you from D.C. and trying
-          to find a new place to have a nice meal? Look no further! Using
-          DeLicious you can search through 100 different restaurants, anything
-          from Japanese Sushi restaurants to Greek food!
+          If you've found your new hot spot let us know by leaving a review!
+          Open up a restaurants page and scroll down to drop a hot review.
         </h4>
         <div className="about-image-container">
           <img className="wash-image-one" src={Washington3} />
