@@ -1,10 +1,9 @@
 .wrapper-div {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
 .padding-control {
-    margin: 20px 10px;
-
+	margin: 20px 10px;
 }
