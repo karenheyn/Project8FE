@@ -30,8 +30,14 @@ class Categories extends Component {
         {noDupesArray.map(item => {
           return (
             <div key={item} className='cat-title-box'>
-              <Link to={`/cuisine/${item}`} className='item'>
-                <p key={item}>{item}</p>
+              <Link
+                to={`/cuisine/${item}`}
+                className='item'
+                style={{ textDecoration: "none" }}
+              >
+                <p className='words' key={item}>
+                  {item}
+                </p>
               </Link>
             </div>
           );

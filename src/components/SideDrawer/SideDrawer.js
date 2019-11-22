@@ -1,6 +1,7 @@
 import React from "react";
 import "./SideDrawer.css";
 import { Link } from "react-router-dom";
+import Plate from "../../assets/plate.png";
 const sideDrawer = props => {
   let drawerClasses = "side-drawer";
   if (props.show) {
@@ -9,25 +10,22 @@ const sideDrawer = props => {
   return (
     <nav className={drawerClasses}>
       <div className='profile-img'>
-        <img
-          src='https://via.placeholder.com/150'
-          alt='placeholder for profile'
-        />
+        <img className='round-img' src={Plate} alt='placeholder for profile' />
         <p>lorem ipsum</p>
       </div>
-      <ul>
-        <Link to='/cuisine'>
-          <li>Cuisine</li>
+      <ul className='nav-list'>
+        <Link to='/cuisine' style={{ textDecoration: "none" }}>
+          <li className='menu-link'>Cuisine</li>
         </Link>
 
-        <Link to='/listings'>
-          <li>Listings</li>
+        <Link to='/listings' style={{ textDecoration: "none" }}>
+          <li className='menu-link'>Listings</li>
         </Link>
-        <li>
-          <a href='/'>Lorem</a>
-        </li>
-        <Link to='/About'>
-          <li>About</li>
+        <Link to='/Contact' style={{ textDecoration: "none" }}>
+          <li className='menu-link'>Contact</li>
+        </Link>
+        <Link to='/About' style={{ textDecoration: "none" }}>
+          <li className='menu-link'>About</li>
         </Link>
       </ul>
     </nav>

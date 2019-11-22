@@ -1,6 +1,6 @@
 .side-drawer {
 	height: 100%;
-	background-color: white;
+	background-color: #3C6997;
 	box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
 	position: fixed;
 	top: 0;
@@ -53,4 +53,19 @@
 .side-drawer a:hover,
 .side-drawer a:active {
 	color: red;
+}
+
+.nav-list {
+	padding: 20% 0px;
+	text-align: center;
+	line-height: 4em;
+	font-family: 'Alata', sans-serif;
+}
+
+.menu-link {
+	color: #FFDD4A;
+}
+
+.menu-link:hover {
+	color: #ECA72C;
 }
