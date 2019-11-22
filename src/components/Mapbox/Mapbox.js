@@ -1,6 +1,9 @@
 import "./Mapbox.css";
 import React, { useState, useEffect } from "react";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
+import { library, dom } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCrosshairs } from "@fortawesome/free-solid-svg-icons";
 
 export default function App(props) {
 	const [viewport, setViewport] = useState({
@@ -10,7 +13,7 @@ export default function App(props) {
 		height: "500px",
 		zoom: 10
 	});
-	console.log(props);
+	library.add(faCrosshairs);
 	return (
 		<div>
 			<ReactMapGL
@@ -26,7 +29,10 @@ export default function App(props) {
 					latitude={props.coordinates.coordinates.latitude}
 					longitude={props.coordinates.coordinates.longitude}
 				>
-					<div className='restaurant-marker'>{props.coordinates.name}</div>
+					<div className='restaurant-marker'>
+						<FontAwesomeIcon icon='crosshairs' />
+						{props.coordinates.name}
+					</div>
 				</Marker>
 			</ReactMapGL>
 		</div>
