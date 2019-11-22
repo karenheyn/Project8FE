@@ -10,7 +10,8 @@ class CreateReview extends Component {
       restaurantId: this.props.restaurantId,
       name: "",
       rating: 0,
-      review: ""
+      review: "",
+      reviewSubmitted: false
     };
     console.log(this.state.restaurantId);
   }
@@ -35,6 +36,8 @@ class CreateReview extends Component {
 
       .then(response => {
         console.log(response);
+        this.setState({ reviewSubmitted: true });
+        this.props.afterCreate();
       })
       .catch(error => {
         console.log(error);
@@ -42,19 +45,27 @@ class CreateReview extends Component {
   };
 
   render() {
-    return (
-      <Form
-        type="comment"
-        name={this.state.name}
-        review={this.state.review}
-        rating={this.state.rating}
-        label="Name"
-        comment
-        getReviewData={this.getReviewData.bind(this)}
-        changeHandler={this.changeHandler.bind(this)}
-        submitHandler={this.submitHandler.bind(this)}
-      />
-    );
+    if (!this.state.reviewSubmitted) {
+      return (
+        <Form
+          type="comment"
+          name={this.state.name}
+          review={this.state.review}
+          rating={this.state.rating}
+          label="Name"
+          comment
+          getReviewData={this.getReviewData.bind(this)}
+          changeHandler={this.changeHandler.bind(this)}
+          submitHandler={this.submitHandler.bind(this)}
+        />
+      );
+    } else {
+      const h1Color = {
+        color: "rgb(201, 172, 8)",
+        textAlign: "center"
+      };
+      return <h1 style={h1Color}>Review Submitted!</h1>;
+    }
   }
 }
 
