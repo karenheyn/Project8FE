@@ -6,7 +6,7 @@ import { array, arrayOf } from "prop-types";
 import RestaurantImageBox from "../../components/RestaurantImageBox/RestaurantImageBox";
 import Restaurant from "../Restaurant/Restaurant";
 import RestaurantDetail from "../RestaurantDetail/RestaurantDetail";
-
+import Form from "../../stories/Forms/Forms";
 import SearchResults from "../SearchResults/SearchResults";
 let namesArray = [];
 class Home extends Component {
@@ -52,14 +52,16 @@ class Home extends Component {
     // console.log(arrayOfData);
     if (!arrayOfData.length < 1) {
       return (
-        <div className="homepage">
+        <div className='homepage'>
           <h1>Home Page</h1>
-          <Searchbar data={arrayOfData} />
-          <div className="slider">
-            <Carousel className="carousel" data={arrayOfData}></Carousel>
+          <div className='search'>
+            <Searchbar data={arrayOfData} />
+          </div>
+          <div className='slider'>
+            <Carousel className='carousel' data={arrayOfData}></Carousel>
           </div>
 
-          <div className="top-rated-rests">
+          <div className='top-rated-rests'>
             {arrayOfData.slice(50, 55).map(item => {
               return (
                 <RestaurantImageBox
