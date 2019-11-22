@@ -3,9 +3,11 @@
 	justify-content: center;
 	flex-direction: column;
 }
+
 .homepage h1 {
 	margin: 0 auto;
 }
+
 .homepage-searchbar {
 	display: flex;
 	align-items: center;
@@ -13,31 +15,44 @@
 	height: 100px;
 	margin: 0 auto;
 }
-.homepage-searchbar input {
+
+input {
 	height: 38px;
-	width: 100%;
-	border: 2px solid lightgray;
+	border: 2px solid black;
+	border-right: none;
+	margin: 0 auto;
+
+}
+
+.homepage-searchbar {
+	height: 38px;
+	width: 30%;
 	margin: 25px auto;
 	font-size: 25px;
-	border-right: none;
+
+
 }
+
 .homepage-searchbar button {
 	height: 38px;
 	border-left: none;
 }
+
 .homepage .slider {
 	margin: 0 auto;
 	margin-bottom: 50px;
 }
+
 .most-reviewed-title {
 	margin: 0 auto;
 }
+
 .homepage .most-reviewed {
 	display: flex;
 	justify-content: space-between;
 }
 
-.top-rated-rests{
+.top-rated-rests {
 	display: flex;
 	flex-direction: row;
 	flex-flow: wrap;
@@ -47,5 +62,5 @@
 	margin-left: 5%;
 	margin-right: 5%;
 	right: 10%;
-	
+
 }

@@ -55,6 +55,7 @@
 	color: red;
 }
 
+
 .nav-list {
 	padding: 20% 0px;
 	text-align: center;
@@ -69,3 +70,54 @@
 .menu-link:hover {
 	color: #ECA72C;
 }
+
+.menu {
+	color: #5ADBFF;
+	font-family: 'Alata', sans-serif;
+	font-size: 19.2px;
+	padding-top: 10%;
+
+}
+
+.round-img:hover {
+	animation: spin 1.5s forwards
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+
+
+}
+
+
+/* 
+.round-img {
+	transform: rotate(190);
+} */
+
+/* .round-img {
+
+	-webkit-animation-name: spin;
+	-webkit-animation-duration: 4000ms;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+	-moz-animation-name: spin;
+	-moz-animation-duration: 4000ms;
+	-moz-animation-iteration-count: infinite;
+	-moz-animation-timing-function: linear;
+	-ms-animation-name: spin;
+	-ms-animation-duration: 4000ms;
+	-ms-animation-iteration-count: infinite;
+	-ms-animation-timing-function: linear;
+
+	animation-name: spin;
+	animation-duration: 4000ms;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear; */
+/* } */
