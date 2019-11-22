@@ -6,7 +6,7 @@ import axios from "axios";
 class CreateReview extends Component {
   constructor(props) {
     super(props);
-    console.log(this.props);
+    console.log(this.props.deleting);
     this.state = {
       restaurantId: this.props.restaurantId,
       name: "",
@@ -14,8 +14,7 @@ class CreateReview extends Component {
       review: "",
       reviewSubmitted: false,
       reviewId: "",
-      editReviewId: this.props.thisReviewsId,
-      isEditing: false
+      editReviewId: this.props.thisReviewsId
     };
     console.log(this.state.editReviewId);
   }
@@ -29,10 +28,33 @@ class CreateReview extends Component {
     // console.log(this.state.review);
     // console.log(this.state.rating);
   };
+
+  deleteHandler = () => {
+    if (this.props.deleting && !this.props.editing) {
+      console.log("hellooooooo");
+      axios
+        .delete(
+          `https://dc-100-restaurants-db.herokuapp.com/reviews/delete/${this.state.editReviewId}`,
+          this.state
+        )
+        .then(response => {
+          console.log(response);
+          this.setState({
+            reviewSubmitted: true,
+            reviewId: response.data._id
+          });
+          this.props.afterCreate();
+          this.props.finishDelete();
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
+  };
   submitHandler = event => {
     event.preventDefault();
     console.log(this.state);
-    if (!this.props.editing) {
+    if (!this.props.editing && !this.props.deleting) {
       axios
         .post(
           "https://dc-100-restaurants-db.herokuapp.com/reviews/create/",
@@ -49,7 +71,7 @@ class CreateReview extends Component {
         .catch(error => {
           console.log(error);
         });
-    } else if (this.props.editing) {
+    } else if (this.props.editing && !this.props.deleting) {
       axios
         .put(
           `https://dc-100-restaurants-db.herokuapp.com/reviews/update/${this.state.editReviewId}`,
@@ -60,7 +82,6 @@ class CreateReview extends Component {
           this.setState({
             reviewSubmitted: true,
             reviewId: response.data._id
-            // isEditing: true
           });
           this.props.afterCreate();
           this.props.finishEdit();
@@ -73,7 +94,8 @@ class CreateReview extends Component {
   };
 
   render() {
-    if (!this.state.reviewSubmitted) {
+    this.deleteHandler();
+    if (!this.state.reviewSubmitted && !this.props.deleting) {
       return (
         <Form
           type="comment"
@@ -88,12 +110,14 @@ class CreateReview extends Component {
           reviewId={this.state.reviewId}
         />
       );
-    } else if (this.state.reviewSubmitted) {
+    } else if (this.state.reviewSubmitted && !this.props.deleting) {
       const h1Color = {
         color: "rgb(201, 172, 8)",
         textAlign: "center"
       };
       return <h1 style={h1Color}>Review Submitted!</h1>;
+    } else if (this.props.deleting) {
+      return null;
     }
   }
 }
