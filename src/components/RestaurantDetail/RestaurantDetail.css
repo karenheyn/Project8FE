@@ -161,4 +161,16 @@ h6 {
 	.rest-data-name {
 		font-size: 2rem;
 	}
+	.rest-image-name {
+		top: 78%;
+	}
+	.rest-image {
+		height: 200px;
+	}
+	.restaurant-image-container {
+		height: 235px;
+	}
+	.mapbox div:nth-child(2) {
+		height: 350px;
+	}
 }
