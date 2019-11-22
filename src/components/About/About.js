@@ -1,5 +1,7 @@
 import React from "react";
 import Washington from "../../assets/washingtonimage.jpg";
+import Washington2 from "../../assets/wash2pic.jpg";
+import Washington3 from "../../assets/wash3pic.jpg";
 import "./About.css";
 const About = () => {
   return (
@@ -10,11 +12,11 @@ const About = () => {
       </h1>
       <div className="about-container">
         <h4 className="about-words-top">
-          <span className="about-big-d">D</span>e
-          <span className="about-big-l">L</span>icious is here to help you find
+          <span className="about-big-d">D</span>eli
+          <span className="about-big-l">C</span>ious is here to help you find
           the best place to eat when you're in D.C. Are you from D.C. and trying
           to find a new place to have a nice meal? Look no further! Using
-          DeLicious you can search through 100 different restaurants, anything
+          DeliCious you can search through 100 different restaurants, anything
           from Japanese Sushi restaurants to Greek food!
         </h4>
         <div className="about-image-container">
@@ -23,15 +25,12 @@ const About = () => {
       </div>
       <div className="about-container">
         <div className="about-image-container-middle">
-          <img className="wash-image-one" src={Washington} />
+          <img className="wash-image-one" src={Washington2} />
         </div>
         <h4 className="about-words-top">
-          <span className="about-big-d">D</span>e
-          <span className="about-big-l">L</span>icious is here to help you find
-          the best place to eat when you're in D.C. Are you from D.C. and trying
-          to find a new place to have a nice meal? Look no further! Using
-          DeLicious you can search through 100 different restaurants, anything
-          from Japanese Sushi restaurants to Greek food!
+          We here at <span className="about-big-d">D</span>eli
+          <span className="about-big-l">C</span>ious are dedicated to providing
+          you with only the best restaurants, fast food spots, and food trucks.
         </h4>
       </div>
       <div className="about-container">
@@ -44,7 +43,7 @@ const About = () => {
           from Japanese Sushi restaurants to Greek food!
         </h4>
         <div className="about-image-container">
-          <img className="wash-image-one" src={Washington} />
+          <img className="wash-image-one" src={Washington3} />
         </div>
       </div>
     </div>
