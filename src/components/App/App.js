@@ -74,8 +74,7 @@ class App extends Component {
               render={() => <Home data={this.state.data} />}
             />
             <Route path='/cuisine/:restaurants' exact component={Category} />
-            <Route path='/searchresults' exact component={SearchResults} />
-            {/* <Route path='/:restaurant' exact component={Restaurant} /> */}
+
             <Route
               exact
               path='/cuisine'
