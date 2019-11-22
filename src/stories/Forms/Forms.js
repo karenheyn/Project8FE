@@ -23,8 +23,17 @@ const Form = props => {
   }
   if (props.comment) {
     return (
-      <form className={classList}>
-        <input className={props.name} placeholder="name"></input>
+      <form
+        className={classList}
+        onSubmit={() => this.props.getReviewData(this.props)}
+      >
+        <input
+          className={props.name}
+          placeholder="Name"
+          name="name"
+          value={props.name}
+          onChange={props.changeHandler}
+        ></input>
         <div className="rating-div">
           <label for="rating">rating:</label>
           <select className="rating">

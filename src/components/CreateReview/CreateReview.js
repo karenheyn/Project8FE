@@ -6,25 +6,29 @@ class CreateReview extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentData: data,
+      currentData: this.props.data,
       name: "",
       review: "",
       rating: 0
     };
-
-    getReviewData = data => {
-      this.setState({ currentData: data });
-    };
   }
+  getReviewData = data => {
+    this.setState({ currentData: data });
+  };
+  changeHandler = event => {
+    this.setState({ [event.target.name]: event.target.value });
+    console.log(this.state.name);
+  };
 
   render() {
     return (
       <Form
         type="comment"
-        name="name"
+        name={this.state.name}
         label="Name"
         comment
         getReviewData={this.getReviewData.bind(this)}
+        changeHandler={this.changeHandler.bind(this)}
       />
     );
   }
