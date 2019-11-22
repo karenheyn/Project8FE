@@ -23,10 +23,7 @@ const Form = props => {
   }
   if (props.comment) {
     return (
-      <form
-        className={classList}
-        onSubmit={() => this.props.getReviewData(this.props)}
-      >
+      <form className={classList} onSubmit={props.submitHandler}>
         <input
           className={props.name}
           placeholder="Name"

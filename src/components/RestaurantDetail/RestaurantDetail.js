@@ -83,7 +83,7 @@ class RestaurantDetail extends Component {
               <a href={this.props.currentData.data.yelpUrl}>Yelp Url</a>
               <h4>Phone Number: {this.props.currentData.data.phone}</h4>
               <h5>Rating: {this.props.currentData.data.rating}</h5>
-              <CreateReview />
+              <CreateReview restaurantId={this.props.currentData.data._id} />
               {this.state.reviewData.length >= 1 ? (
                 <h1>No Reviews!</h1>
               ) : (
