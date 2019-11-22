@@ -1,10 +1,10 @@
 import React from "react";
-// import { faburger } from "@fortawesome/free-solid-svg-icons";
+import { faHamburger } from "@fortawesome/free-solid-svg-icons";
 import DrawerToggleButton from "../SideDrawer/DrawerToggleButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Navbar.css";
 import { library } from "@fortawesome/fontawesome-svg-core";
-// library.add(faburger);
+library.add(faHamburger);
 const Navbar = props => (
 	<header className='navbar'>
 		<nav className='navbar-navigation'>
@@ -12,9 +12,10 @@ const Navbar = props => (
 				<DrawerToggleButton click={props.drawerClickHandler} />
 			</div>
 			<div className='logo'>
-				<FontAwesomeIcon icon='hamburger' />
+				<FontAwesomeIcon icon={["fa", "hamburger"]} />
 				<a href='/'>
-					<span className='bold'>D</span>eli<span className='bold'>C</span>ious
+					<span className='bold-one'>D</span>eli
+					<span className='bold-two'>C</span>ious
 				</a>
 			</div>
 			<div className='spacer' />
