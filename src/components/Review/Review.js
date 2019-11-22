@@ -8,7 +8,8 @@ class Review extends Component {
     super(props);
     console.log(props.reviewProps.id);
     this.state = {
-      edit: false
+      edit: false,
+      deleting: false
     };
   }
 
@@ -20,6 +21,15 @@ class Review extends Component {
   finishEdit = () => {
     this.setState({ edit: false });
     console.log("edit complete");
+  };
+
+  startDelete = () => {
+    this.setState({ deleting: true });
+    console.log("start delete");
+  };
+  finishDelete = () => {
+    this.setState({ deleting: false });
+    console.log("delete complete");
   };
 
   deleteReview = () => {
@@ -41,14 +51,14 @@ class Review extends Component {
           <Button
             label="Edit"
             type="edit"
-            onMouseDown={this.startEdit.bind(this)}
+            onMouseDownEdit={this.startEdit.bind(this)}
           />
         </div>
         <div className="delete-button-container">
           <Button
             label="Delete"
             type="delete"
-            onMouseDown={this.deleteReview.bind(this)}
+            onMouseDownDelete={this.startDelete.bind(this)}
           />
         </div>
         {this.state.edit ? (
@@ -58,6 +68,15 @@ class Review extends Component {
             editing={true}
             thisReviewsId={this.props.reviewProps.id}
             finishEdit={this.finishEdit.bind(this)}
+          />
+        ) : null}
+        {this.state.deleting ? (
+          <CreateReview
+            restaurantId={this.props.currentData.data._id}
+            afterCreate={this.props.afterCreate}
+            deleting={true}
+            thisReviewsId={this.props.reviewProps.id}
+            finishDelete={this.finishDelete.bind(this)}
           />
         ) : null}
       </div>
