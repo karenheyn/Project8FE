@@ -14,7 +14,8 @@ class CreateReview extends Component {
       review: "",
       reviewSubmitted: false,
       reviewId: "",
-      editReviewId: this.props.thisReviewsId
+      editReviewId: this.props.thisReviewsId,
+      isEditing: false
     };
     console.log(this.state.editReviewId);
   }
@@ -49,6 +50,25 @@ class CreateReview extends Component {
           console.log(error);
         });
     } else if (this.props.editing) {
+      axios
+        .put(
+          `https://dc-100-restaurants-db.herokuapp.com/reviews/update/${this.state.editReviewId}`,
+          this.state
+        )
+        .then(response => {
+          console.log(response);
+          this.setState({
+            reviewSubmitted: true,
+            reviewId: response.data._id
+            // isEditing: true
+          });
+          this.props.afterCreate();
+          this.props.finishEdit();
+          this.props.getReviewId(response.data._id);
+        })
+        .catch(error => {
+          console.log(error);
+        });
     }
   };
 
@@ -68,7 +88,7 @@ class CreateReview extends Component {
           reviewId={this.state.reviewId}
         />
       );
-    } else {
+    } else if (this.state.reviewSubmitted) {
       const h1Color = {
         color: "rgb(201, 172, 8)",
         textAlign: "center"

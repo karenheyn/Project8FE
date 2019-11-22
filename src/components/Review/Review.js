@@ -16,6 +16,11 @@ class Review extends Component {
     this.setState({ edit: true });
     console.log("start edit");
   };
+
+  finishEdit = () => {
+    this.setState({ edit: false });
+    console.log("edit complete");
+  };
   render() {
     return (
       <div className="review-box-container">
@@ -38,9 +43,10 @@ class Review extends Component {
         {this.state.edit ? (
           <CreateReview
             restaurantId={this.props.currentData.data._id}
-            afterCreate={this.getAllData}
+            afterCreate={this.props.afterCreate}
             editing={true}
             thisReviewsId={this.props.reviewProps.id}
+            finishEdit={this.finishEdit.bind(this)}
           />
         ) : null}
       </div>
