@@ -17,6 +17,11 @@ nav .navbar {
 
 nav .logo {
 	margin-left: 2rem;
+	letter-spacing: 2px;
+}
+.logo .bold {
+	font-weight: bolder;
+	font-size: 1rem;
 }
 
 .spacer {
