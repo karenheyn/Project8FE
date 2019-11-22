@@ -11,7 +11,7 @@ const sideDrawer = props => {
     <nav className={drawerClasses}>
       <div className='profile-img'>
         <img className='round-img' src={Plate} alt='placeholder for profile' />
-        <p>lorem ipsum</p>
+        <p className='menu'>Menu</p>
       </div>
       <ul className='nav-list'>
         <Link to='/cuisine' style={{ textDecoration: "none" }}>
@@ -19,7 +19,7 @@ const sideDrawer = props => {
         </Link>
 
         <Link to='/listings' style={{ textDecoration: "none" }}>
-          <li className='menu-link'>Listings</li>
+          <li className='menu-link'>Restaurants</li>
         </Link>
         <Link to='/Contact' style={{ textDecoration: "none" }}>
           <li className='menu-link'>Contact</li>
