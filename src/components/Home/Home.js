@@ -53,7 +53,7 @@ class Home extends Component {
     if (!arrayOfData.length < 1) {
       return (
         <div className='homepage'>
-          <h1>search</h1>
+          <h1 className='title'>Search</h1>
           <div className='search'>
             <Searchbar data={arrayOfData} />
           </div>

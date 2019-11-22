@@ -64,6 +64,11 @@ input {
 	right: 10%;
 }
 
+.title {
+	font-family: 'Alata', sans-serif;
+	color: #ECA72C;
+}
+
 @media only screen and (max-width: 768px) {
 	.homepage-searchbar {
 		width: 87%;
