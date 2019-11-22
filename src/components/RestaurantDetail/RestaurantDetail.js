@@ -4,6 +4,7 @@ import "../Backdrop/Backdrop";
 import Mapbox from "../Mapbox/Mapbox";
 import Form from "../../stories/Forms/Forms";
 import Review from "../../components/Review/Review";
+import CreateReview from "../CreateReview/CreateReview";
 const axios = require("axios");
 
 const reviewsUrl = "https://dc-100-restaurants-db.herokuapp.com/reviews";
@@ -18,29 +19,25 @@ class RestaurantDetail extends Component {
 			// thisRestaurantsReviews: []
 		};
 	}
-
-	componentDidMount() {
-		const getAllData = async () => {
-			await axios.get(reviewsUrl).then(res => {
-				let allReviewData = res.data;
-				console.log(allReviewData);
-				const reviews = allReviewData.map(item => {
-					const newReview = {};
-					newReview.id = item._id;
-					newReview.restReviewId = item.restaurantId;
-					newReview.reviewName = item.name;
-					newReview.reviewRating = item.rating;
-					newReview.reviewContent = item.review;
-					return newReview;
-				});
-				this.setState({ reviewData: reviews, loading: false });
-				console.log("got reviews");
+	getAllData = async () => {
+		await axios.get(reviewsUrl).then(res => {
+			let allReviewData = res.data;
+			console.log(allReviewData);
+			const reviews = allReviewData.map(item => {
+				const newReview = {};
+				newReview.id = item._id;
+				newReview.restReviewId = item.restaurantId;
+				newReview.reviewName = item.name;
+				newReview.reviewRating = item.rating;
+				newReview.reviewContent = item.review;
+				return newReview;
 			});
-		};
-		// const createReviewsArray = async () => {
-
-		// }
-		getAllData();
+			this.setState({ reviewData: reviews, loading: false });
+			console.log("got reviews");
+		});
+	};
+	componentDidMount() {
+		this.getAllData();
 	}
 
 	render() {
@@ -88,16 +85,17 @@ class RestaurantDetail extends Component {
 							<div className='mapbox'>
 								<Mapbox coordinates={this.props.currentData.data} />
 							</div>
-							<Form type='comment' name='name' label='Name' comment />
-							{this.state.reviewData.length >= 1 ? (
-								<h1>No Reviews!</h1>
-							) : (
-								<h1>NO</h1>
-							)}
+							<CreateReview
+								restaurantId={this.props.currentData.data._id}
+								afterCreate={this.getAllData}
+							/>
+							{restReviewsArray.length === 0 ? <h1>No Reviews!</h1> : null}
 
 							<div className='reviews-total-container'>
 								{restReviewsArray.map(item => {
-									return <Review reviewProps={item} />;
+									return (
+										<Review reviewProps={item} afterCreate={this.getAllData} />
+									);
 								})}
 							</div>
 						</div>
