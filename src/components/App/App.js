@@ -62,37 +62,36 @@ class App extends Component {
     }
     if (!this.state.loading) {
       return (
-        <div className='main-container'>
+        <div className="main-container">
           <Navbar drawerClickHandler={this.drawerToggleClickHandler} />
           <SideDrawer show={this.state.sideDrawerOpen} />
           {backdrop}
           <main>
             <Route
               exact
-              path='/'
+              path="/"
               render={() => <Home data={this.state.data} />}
             />
-            <Route path='/cuisine/:restaurants' exact component={Category} />
-            <Route path='/searchresults' exact component={SearchResults} />
-            {/* <Route path='/:restaurant' exact component={Restaurant} /> */}
+            <Route path="/cuisine/:restaurants" exact component={Category} />
+
             <Route
               exact
-              path='/cuisine'
+              path="/cuisine"
               render={() => <Catagories data={this.state.data} />}
             />
-            <Route path='/results' exact component={SearchResults} />
+            <Route path="/results" exact component={SearchResults} />
             <Route
-              path='/search'
+              path="/search"
               exact
               render={() => <Search data={this.state.data} />}
             />
           </main>
           <Route
-            path='/listings'
+            path="/listings"
             exact
             render={() => <Listings data={this.state.data} />}
           />
-          <Route path='/about' exact component={About} />
+          <Route path="/about" exact component={About} />
         </div>
       );
     }
