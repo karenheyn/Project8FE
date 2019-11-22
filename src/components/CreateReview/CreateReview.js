@@ -6,7 +6,7 @@ import axios from "axios";
 class CreateReview extends Component {
   constructor(props) {
     super(props);
-    console.log(this.props.deleting);
+    // console.log(this.props.deleting);
     this.state = {
       restaurantId: this.props.restaurantId,
       name: "",
@@ -16,7 +16,7 @@ class CreateReview extends Component {
       reviewId: "",
       editReviewId: this.props.thisReviewsId
     };
-    console.log(this.state.editReviewId);
+    // console.log(this.state.editReviewId);
   }
   getReviewData = data => {
     this.setState({ currentData: data });
@@ -38,7 +38,7 @@ class CreateReview extends Component {
           this.state
         )
         .then(response => {
-          console.log(response);
+          //   console.log(response);
           this.setState({
             reviewSubmitted: true,
             reviewId: response.data._id
@@ -53,7 +53,7 @@ class CreateReview extends Component {
   };
   submitHandler = event => {
     event.preventDefault();
-    console.log(this.state);
+    // console.log(this.state);
     if (!this.props.editing && !this.props.deleting) {
       axios
         .post(
@@ -62,7 +62,7 @@ class CreateReview extends Component {
         )
 
         .then(response => {
-          console.log(response.data._id);
+          //   console.log(response.data._id);
           this.setState({ reviewSubmitted: true, reviewId: response.data._id });
           //   console.log(this.state.reviewId);
           this.props.getReviewId(response.data._id);
@@ -78,7 +78,7 @@ class CreateReview extends Component {
           this.state
         )
         .then(response => {
-          console.log(response);
+          //   console.log(response);
           this.setState({
             reviewSubmitted: true,
             reviewId: response.data._id
