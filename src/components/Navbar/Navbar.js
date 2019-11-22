@@ -12,12 +12,12 @@ const Navbar = props => (
         <DrawerToggleButton click={props.drawerClickHandler} />
       </div>
       <div className='logo'>
-        <FontAwesomeIcon icon={["fa", "hamburger"]} />
-        <a href='/'>
+        {/* <FontAwesomeIcon icon={["fa", "hamburger"]} /> */}
+        <a ClassName='logo-text' href='/'>
           <span className='bold-one'>D</span>eli
-          <span className='bold-two'>C</span>ious
+          <span className='bold-one'>C</span>ious
         </a>
-        <FontAwesomeIcon icon={["fa", "pizza-slice"]} />
+        {/* <FontAwesomeIcon icon={["fa", "pizza-slice"]} /> */}
       </div>
       <div className='spacer' />
       <div className='nav-items'>
