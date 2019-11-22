@@ -1,74 +1,164 @@
-.rest-detail-box-container{
-    display: flex;
-    position: relative;
-    width: 100%;
-    height: 100%;
+.rest-detail-box-container {
+	display: flex;
+	position: relative;
+	width: 100%;
+	height: 100%;
 }
 
-.rest-detail-container{
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    flex-direction: column;
-    z-index: 100;
-    width: 60%;
-    height: 800px;
-    border: 2px solid black;
-    border-radius: 8px;
-    margin: 0 auto;
-    background-color: rgba(245, 245, 245, 0.968);
-    box-shadow: 15px 15px 20px 1px rgba(0, 0, 0, 0.308);
-    overflow: scroll;
-    
+.rest-detail-container {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: flex;
+	flex-direction: column;
+	z-index: 100;
+	width: 60%;
+	height: 800px;
+	border: 2px solid black;
+	border-radius: 8px;
+	margin: 0 auto;
+	background-color: rgba(245, 245, 245, 0.968);
+	box-shadow: 15px 15px 20px 1px rgba(0, 0, 0, 0.308);
+	overflow: scroll;
 }
 
-.detail-overlay{
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.475);
+.detail-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.475);
 }
-.rest-image-container{
-    width: 70%;
-    max-height: 400px;
-    border: 8px solid rgba(0, 0, 0, 0.041);
-    border-radius: 10px;
-    margin: 0 auto;
-    margin-top: 5%;
+.rest-image-container {
+	width: 70%;
+	max-height: 400px;
+	border: 8px solid rgba(0, 0, 0, 0.041);
+	border-radius: 10px;
+	margin: 0 auto;
+	margin-top: 5%;
 }
-.rest-image-picture{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.rest-details-data{
-    top: 20px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-left: 30px;
-    
-}
-.rest-data-name{
-    font-family:'Alata', sans-serif;
-    font-size: 42px;
-}
-.rest-data-location{
-    font-family:'Alata', sans-serif;
-    font-size: 22px;
+.rest-image-picture {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
-h1,h2,h3,h4,h5,h6 {
-    font-family:'Alata', sans-serif;
+.rest-data-details {
+	top: 20px;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 0 30px;
+}
+.rest-data-name {
+	text-align: center;
+	font-size: 42px;
+}
+.rest.data-content {
+	text-align: center;
+}
+.rest-data-location,
+.rest-data-content,
+.rest-data-categories {
+	font-size: 22px;
+	margin-bottom: 10px;
+}
+.rest-data-info {
+	display: flex;
+	justify-content: space-around;
+	margin: 40px 0;
+}
+.rest-data-city {
+	margin-left: 7px;
+}
+.rest-data-location,
+.rest-data-content,
+.rest-data-name,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: "Alata", sans-serif;
 }
 
-.reviews-total-container{
-    padding-top: 50px;
-    padding-bottom: 30px;
+.reviews-total-container {
+	padding-top: 50px;
+	padding-bottom: 30px;
+}
+
+@media only screen and (max-width: 1330px) {
+	.rest-data-name {
+		font-size: 3rem;
+	}
+	.rest-data-location,
+	.rest-data-content,
+	.rest-data-categories {
+		font-size: 1rem;
+	}
+	.rest-data-description h2 {
+		font-size: 1.5rem;
+	}
+}
+@media only screen and (max-width: 1058px) {
+	.rest-data-description h2 {
+		font-size: 1.2rem;
+	}
+}
+@media only screen and (max-width: 1126px) {
+	.rest-data-catagories {
+		width: 125px;
+	}
+}
+@media only screen and (max-width: 946px) {
+	.rest-data-info {
+		flex-direction: column;
+	}
+}
+@media only screen and (max-width: 882px) {
+	.rest-data-description h2 {
+		font-size: 3rem;
+		margin-top: 22px;
+	}
+	.rest-data-content,
+	.rest-data-categories li {
+		font-size: 1.6rem;
+	}
+	.rest-data-name {
+		font-size: 5rem;
+	}
+}
+@media only screen and (max-width: 754px) {
+	.rest-detail-container {
+		width: 77%;
+	}
+}
+@media only screen and (max-width: 714px) {
+	.rest-data-description h2 {
+		font-size: 2rem;
+	}
+	.rest-data-content,
+	.rest-data-categories li {
+		font-size: 1rem;
+	}
+	.rest-data-name {
+		font-size: 3rem;
+	}
+}
+@media only screen and (max-width: 526px) {
+	.rest-data-description h2 {
+		font-size: 2rem;
+		margin-top: 22px;
+	}
+	.rest-data-content,
+	.rest-data-categories li {
+		font-size: 1rem;
+	}
+	.rest-data-name {
+		font-size: 2rem;
+	}
 }

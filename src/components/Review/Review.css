@@ -1,8 +1,9 @@
 .review-box-container{
+    position: relative;
     padding: 20px 10px 20px 10px;
     width: 90%;
     min-height: 200px;
-    max-height: 300px;
+    max-height: 500px;
     border: 2px solid black;
     margin: 0 auto;
     margin-top: 20px;
@@ -20,4 +21,9 @@
 .restaurant-review-content{
     font-size: 18px;
     padding: 5px 0px 5px 0px;
+}
+
+.review-button-container{
+    position: absolute;
+    right: 5%;
 }

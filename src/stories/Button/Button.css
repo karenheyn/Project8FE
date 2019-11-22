@@ -19,3 +19,7 @@ button {
     width: 43px;
     padding: 4px;
 }
+
+.button-edit{
+    background-color: #ECA72C;
+}
