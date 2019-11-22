@@ -5,7 +5,7 @@ __DeLiCious__ is a web app created to allow users to search for the best restaur
 __DeLiCious__ also allows users to create their own reviews and update or delete those reviews. 
   
 
-![DeLiCious](src/assets/DLCSgif1.gif)  
+![DeLiCious](src/assets/dlcs2.gif)  
 
 
 ### Built With
