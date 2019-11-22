@@ -16,11 +16,18 @@ export default function App(props) {
 			<ReactMapGL
 				{...viewport}
 				mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+				mapStyle='mapbox://styles/tully4school/ck39t2dgw0kme1ckki4zgxjyq'
 				onViewportChange={viewport => {
 					setViewport(viewport);
 				}}
 			>
-				{/* Markers and Popup will go here */}
+				<Marker
+					key={props.coordinates._id}
+					latitude={props.coordinates.coordinates.latitude}
+					longitude={props.coordinates.coordinates.longitude}
+				>
+					<div className='restaurant-marker'>{props.coordinates.name}</div>
+				</Marker>
 			</ReactMapGL>
 		</div>
 	);
