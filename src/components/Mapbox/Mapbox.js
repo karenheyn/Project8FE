@@ -9,7 +9,7 @@ export default function App(props) {
 	const [viewport, setViewport] = useState({
 		latitude: props.coordinates.coordinates.latitude,
 		longitude: props.coordinates.coordinates.longitude,
-		width: "80%",
+		width: "97%",
 		height: "500px",
 		zoom: 10
 	});
@@ -19,7 +19,7 @@ export default function App(props) {
 			<ReactMapGL
 				{...viewport}
 				mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-				mapStyle='mapbox://styles/tully4school/ck39t2dgw0kme1ckki4zgxjyq'
+				mapStyle='mapbox://styles/tully4school/ck39ulbxx06vj1dmgfvfimf4e'
 				onViewportChange={viewport => {
 					setViewport(viewport);
 				}}
@@ -31,7 +31,7 @@ export default function App(props) {
 				>
 					<div className='restaurant-marker'>
 						<FontAwesomeIcon icon='crosshairs' />
-						{props.coordinates.name}
+						<span>{props.coordinates.name}</span>
 					</div>
 				</Marker>
 			</ReactMapGL>
