@@ -79,8 +79,12 @@
 
 }
 
-.round-img:hover {
+.round-img-go {
 	animation: spin 1.5s forwards
+}
+
+.image-link {
+	text-align: center;
 }
 
 @keyframes spin {

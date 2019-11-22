@@ -8,7 +8,7 @@
 	background-color: #ffdd4a;
 	height: 50px;
 	align-items: center;
-	z-index: 2;
+	z-index: 10;
 	box-shadow: 1px 0px 5px 0px;
 }
 
@@ -20,14 +20,17 @@ nav .logo {
 	margin-left: 2rem;
 	letter-spacing: 2px;
 }
+
 nav .logo a {
 	margin-right: 7px;
 }
+
 .logo .bold-one,
 .logo .bold-two {
 	font-weight: bolder;
 	font-size: 1rem;
 }
+
 .logo .bold-one {
 	margin-left: 10px;
 }

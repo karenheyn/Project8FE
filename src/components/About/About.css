@@ -1,0 +1,28 @@
+.wash {
+    height: 360px;
+    display: cover;
+    width: 300px;
+    margin: 0 auto;
+
+}
+
+.about-title {
+    color: #ECA72C
+}
+
+.about-text {
+    margin: 20px;
+    color: #3C6997;
+}
+
+.img-abt {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+.about-container {
+    text-align: center;
+    font-family: 'Alata', sans-serif;
+}
