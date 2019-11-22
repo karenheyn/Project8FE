@@ -14,7 +14,13 @@ const sideDrawer = props => {
   return (
     <nav className={drawerClasses}>
       <div className='profile-img'>
-        <img className={imgClasses} src={Plate} alt='placeholder for profile' />
+        <a className='image-link' href='/'>
+          <img
+            className={imgClasses}
+            src={Plate}
+            alt='placeholder for profile'
+          />
+        </a>
         <p className='menu'>Menu</p>
       </div>
       <ul className='nav-list'>

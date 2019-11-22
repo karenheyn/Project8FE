@@ -83,6 +83,9 @@
 	animation: spin 1.5s forwards
 }
 
+.image-link {
+	text-align: center;
+}
 
 @keyframes spin {
 	0% {
