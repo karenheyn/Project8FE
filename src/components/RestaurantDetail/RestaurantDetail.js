@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "./RestaurantDetail.css";
 import "../Backdrop/Backdrop";
-import Form from "../../stories/Forms/Forms";
 import Review from "../../components/Review/Review";
+import CreateReview from "../CreateReview/CreateReview";
 const axios = require("axios");
 
 const reviewsUrl = "https://dc-100-restaurants-db.herokuapp.com/reviews";
@@ -83,7 +83,7 @@ class RestaurantDetail extends Component {
               <a href={this.props.currentData.data.yelpUrl}>Yelp Url</a>
               <h4>Phone Number: {this.props.currentData.data.phone}</h4>
               <h5>Rating: {this.props.currentData.data.rating}</h5>
-              <Form type="comment" name="name" label="Name" comment />
+              <CreateReview />
               {this.state.reviewData.length >= 1 ? (
                 <h1>No Reviews!</h1>
               ) : (
