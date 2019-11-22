@@ -44,14 +44,14 @@ class RestaurantDetail extends Component {
   }
 
   render() {
-    console.log(this.state.reviewData);
-    console.log(this.props.currentData);
+    // console.log(this.state.reviewData);
+    // console.log(this.props.currentData);
     const restReviewsArray = [];
     this.state.reviewData.map(item => {
       if (item.restReviewId === this.props.currentData.data._id) {
         restReviewsArray.push(item);
       }
-      console.log(restReviewsArray);
+      // console.log(restReviewsArray);
     });
 
     if (!this.state.loading) {
@@ -99,6 +99,7 @@ class RestaurantDetail extends Component {
                       afterCreate={this.getAllData}
                       restaurantId={this.props.currentData.data._id}
                       currentData={this.props.currentData}
+                      thisReviewsId={this.state.editReviewId}
                     />
                   );
                 })}

@@ -6,7 +6,7 @@ import CreateReview from "../CreateReview/CreateReview";
 class Review extends Component {
   constructor(props) {
     super(props);
-    // console.log(props);
+    console.log(props.reviewProps.id);
     this.state = {
       edit: false
     };
@@ -40,6 +40,7 @@ class Review extends Component {
             restaurantId={this.props.currentData.data._id}
             afterCreate={this.getAllData}
             editing={true}
+            thisReviewsId={this.props.reviewProps.id}
           />
         ) : null}
       </div>

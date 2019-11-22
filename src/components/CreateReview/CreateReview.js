@@ -13,9 +13,10 @@ class CreateReview extends Component {
       rating: 0,
       review: "",
       reviewSubmitted: false,
-      reviewId: ""
+      reviewId: "",
+      editReviewId: this.props.thisReviewsId
     };
-    console.log(this.state.restaurantId);
+    console.log(this.state.editReviewId);
   }
   getReviewData = data => {
     this.setState({ currentData: data });
@@ -23,9 +24,9 @@ class CreateReview extends Component {
   changeHandler = event => {
     this.setState({ [event.target.name]: event.target.value });
 
-    console.log(this.state.name);
-    console.log(this.state.review);
-    console.log(this.state.rating);
+    // console.log(this.state.name);
+    // console.log(this.state.review);
+    // console.log(this.state.rating);
   };
   submitHandler = event => {
     event.preventDefault();
@@ -40,6 +41,7 @@ class CreateReview extends Component {
         .then(response => {
           console.log(response.data._id);
           this.setState({ reviewSubmitted: true, reviewId: response.data._id });
+          //   console.log(this.state.reviewId);
           this.props.getReviewId(response.data._id);
           this.props.afterCreate();
         })
@@ -63,6 +65,7 @@ class CreateReview extends Component {
           getReviewData={this.getReviewData.bind(this)}
           changeHandler={this.changeHandler.bind(this)}
           submitHandler={this.submitHandler.bind(this)}
+          reviewId={this.state.reviewId}
         />
       );
     } else {
