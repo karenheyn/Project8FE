@@ -6,7 +6,7 @@
 	display: flex;
 	padding: 0 30px;
 	background-color: #ffdd4a;
-	height: 50px;
+	height: 68px;
 	align-items: center;
 	z-index: 10;
 	box-shadow: 1px 0px 5px 0px;
@@ -16,23 +16,44 @@ nav .navbar {
 	display: flex;
 }
 
-
 nav .logo {
 	margin-left: 2rem;
 	letter-spacing: 2px;
 	position: absolute;
 	right: 7%;
-	font-family: 'Pacifico', cursive;
+	font-family: "Pacifico", cursive;
 	font-size: 35px;
 	/* text-shadow: -1px 0 #ECA72C, 0 1px #ECA72C, 1px 0 #ECA72C, 0 -1px #ECA72C; */
 	-webkit-text-stroke-width: 1px;
-	-webkit-text-stroke-color: #ECA72C;
-
+	-webkit-text-stroke-color: #eca72c;
 }
 
 nav .logo a {
 	margin-right: 7px;
-
+	position: relative;
+	text-decoration: none;
+}
+nav .logo a:hover {
+	color: #5adbff;
+}
+nav .logo a:before {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 2px;
+	bottom: 0;
+	left: 0;
+	background-color: #000;
+	visibility: hidden;
+	-webkit-transform: scaleX(1);
+	transform: scaleX(0);
+	-webkit-transition: all 0.3s ease-in-out 0s;
+	transition: all 0.3s ease-in-out 0s;
+}
+nav .logo a:hover:before {
+	visibility: visible;
+	-webkit-transform: scaleX(1);
+	transform: scaleX(1);
 }
 
 .logo .bold-one,
@@ -41,7 +62,7 @@ nav .logo a {
 	font-size: 35px;
 	/* text-shadow: -1px 0 #ECA72C, 0 1px #ECA72C, 1px 0 #ECA72C, 0 -1px #ECA72C; */
 	-webkit-text-stroke-width: 1px;
-	-webkit-text-stroke-color: #ECA72C;
+	-webkit-text-stroke-color: #eca72c;
 }
 
 /* .logo .bold-one {
@@ -66,5 +87,7 @@ nav .logo a {
 
 .navbar-navigation a {
 	text-decoration: none;
-	color: #5ADBFF;
+	color: #5adbff;
+	-webkit-text-stroke-width: 2px;
+	-webkit-text-stroke-color: #eca72c;
 }
