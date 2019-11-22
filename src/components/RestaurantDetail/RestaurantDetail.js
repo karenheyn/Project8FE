@@ -71,21 +71,60 @@ class RestaurantDetail extends Component {
 								alt='whoops'
 							/>
 						</div>
-						<div className='rest-details-data'>
-							<h1 className='rest-data-name'>
-								{this.props.currentData.data.name}
-							</h1>
-							<h3 className='rest-data-location'>
-								{`${this.props.currentData.data.location.address}, 
-                ${this.props.currentData.data.location.city}`}
-							</h3>
-							<h3>Categories:</h3>
-							{this.props.currentData.data.categories.map(item => {
-								return <h3>{item}</h3>;
-							})}
-							<a href={this.props.currentData.data.yelpUrl}>Yelp Url</a>
-							<h4>Phone Number: {this.props.currentData.data.phone}</h4>
-							<h5>Rating: {this.props.currentData.data.rating}</h5>
+						<div className='rest-data-details'>
+							<div className='rest-data-name'>
+								<span>{this.props.currentData.data.name}</span>
+								<div className='rest-data-content'>
+									<div className='rest-data location'>
+										<span className='rest-data-street'>
+											{this.props.currentData.data.location.address},
+										</span>
+										<span className='rest-data-city'>
+											{this.props.currentData.data.location.city}
+										</span>
+									</div>
+								</div>
+							</div>
+							<div className='rest-data-info'>
+								<div className='rest-data'>
+									<div className='rest-data-description'>
+										<h2>Phone Number</h2>
+									</div>
+									<div className='rest-data-content'>
+										{this.props.currentData.data.phone}
+									</div>
+								</div>
+								<div className='rest-data'>
+									<div className='rest-data-description'>
+										<h2>Categories</h2>
+									</div>
+									<div className='rest-data-categories'>
+										<ul>
+											{this.props.currentData.data.categories.map(item => {
+												return <li>{item}</li>;
+											})}
+										</ul>
+									</div>
+								</div>
+								<div className='rest-data'>
+									<div className='rest-data-description'>
+										<h2>Webstite</h2>
+									</div>
+									<div className='rest-data-content'>
+										<a href={this.props.currentData.data.yelpUrl}>
+											Visit on Yelp
+										</a>
+									</div>
+								</div>
+								<div className='rest-data'>
+									<div className='rest-data-description'>
+										<h2>Rating</h2>
+									</div>{" "}
+									<div className='rest-data-content'>
+										{this.props.currentData.data.rating}
+									</div>
+								</div>
+							</div>
 							<div className='mapbox'>
 								<Mapbox coordinates={this.props.currentData.data} />
 							</div>
