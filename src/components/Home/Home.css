@@ -44,6 +44,10 @@
 .homepage .slider {
 	margin: 0 auto;
 	margin-bottom: 50px;
+	border: 10px solid #094074;
+	border-radius: 4px;
+	max-width: 970px;
+	min-width: 85%;
 }
 
 .most-reviewed-title {
