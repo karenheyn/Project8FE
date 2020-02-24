@@ -15,6 +15,8 @@ __DeLiCious__ also allows users to create their own reviews and update or delete
 - React Storybook  
 - MapBox  
 
+### Deployed Version
+https://wizardly-bartik-6c114a.netlify.com/
 
 _DeLiCious utilizes our [DC Top Restaurants Database API](https://github.com/TylerEikenberg/Yelp-DC-Database)._ 
 
