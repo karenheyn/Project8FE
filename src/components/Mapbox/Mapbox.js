@@ -11,16 +11,16 @@ export default function App(props) {
     longitude: props.coordinates.coordinates.longitude,
     width: "97%",
     height: "500px",
-    zoom: 10
+    zoom: 10,
   });
   library.add(faCrosshairs);
   return (
     <div>
       <ReactMapGL
         {...viewport}
-        mapboxApiAccessToken="pk.eyJ1IjoidHVsbHk0c2Nob29sIiwiYSI6ImNrMzloNjQ4dTAzN2gzaXBkZHRxdmdnZTQifQ.z6t7YEVCQRslNMgDjiDOiw"
-        mapStyle="mapbox://styles/tully4school/ck39ulbxx06vj1dmgfvfimf4e"
-        onViewportChange={viewport => {
+        mapboxApiAccessToken='pk.eyJ1IjoidHVsbHk0c2Nob29sIiwiYSI6ImNrMzloNjQ4dTAzN2gzaXBkZHRxdmdnZTQifQ.z6t7YEVCQRslNMgDjiDOiw'
+        mapStyle='mapbox://styles/tully4school/ck39ulbxx06vj1dmgfvfimf4e'
+        onViewportChange={(viewport) => {
           setViewport(viewport);
         }}
       >
@@ -29,8 +29,8 @@ export default function App(props) {
           latitude={props.coordinates.coordinates.latitude}
           longitude={props.coordinates.coordinates.longitude}
         >
-          <span className="restaurant-marker">
-            <FontAwesomeIcon icon="crosshairs" />
+          <span className='restaurant-marker'>
+            <FontAwesomeIcon icon='crosshairs' />
             <span>{props.coordinates.name}</span>
           </span>
         </Marker>
