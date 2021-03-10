@@ -13,7 +13,7 @@ class RestaurantImageBox extends Component {
 
         <img
           src={this.props.data.imageUrl}
-          alt='whoops'
+          alt='image unavailable'
           className='rest-image'
           onMouseDown={() => this.props.getClickedRestaurantData(this.props)}
         />
