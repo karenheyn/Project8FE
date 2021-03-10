@@ -1,14 +1,10 @@
 .about-header-title {
-	top: 0px;
-	left: 0px;
-	font-size: 48px;
-	margin-left: 45%;
+	text-align: center;
 }
 .about-header-subtitle {
-	top: 0px;
-	left: 0px;
-	font-size: 18px;
-	margin-left: 40%;
+text-align: center;
+margin: 30px auto;
+font-size: 1.6rem;
 }
 .about-big-d {
 	font-size: 56px;
@@ -21,23 +17,23 @@
 	width: 100%;
 }
 .about-container {
-	position: relative;
-	display: flex;
-	flex-direction: row;
-	width: 80%;
-	height: 100%;
-	margin-left: 20%;
-	margin-top: 10%;
+    position: relative;
+    display: flex;
+	flex: 1 0 50%;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+	margin: 40px 0;
 }
 .about-image-container {
 	max-width: 700px;
 	max-height: 600px;
-	padding: 0px 20px 0px 20px;
+
 }
 .about-image-container-middle {
 	max-width: 700px;
 	max-height: 600px;
-	padding-right: 60px;
+
 }
 .wash-image-one {
 	max-width: 700px;
@@ -46,8 +42,11 @@
 	box-shadow: 15px 15px 20px 1px rgba(0, 0, 0, 0.308);
 }
 .about-words-top {
-	margin-top: 10%;
-	max-width: 400px;
-	max-height: 600px;
-	padding: 0px 20px 0px 20px;
+    margin-top: 10%;
+    height: 100%;
+    width: 100%;
+    flex: 1 1 0;
+}
+h4{
+	padding: 10px;
 }

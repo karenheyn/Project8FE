@@ -11,63 +11,69 @@ class SearchResults extends Component {
     this.state = {
       passedData: this.props.location.state.results,
       renderDetails: false,
-      currentData: {} //for getClickedRestaurantData - tyler
+      currentData: {}, //for getClickedRestaurantData - tyler
     };
   }
   /**
    * getClickedRestaurantData returns the data from a restaurant that is clicked
    * -Tyler
    */
-  getClickedRestaurantData = data => {
+  getClickedRestaurantData = (data) => {
     // console.log(data);
     this.setState({ currentData: data, renderDetails: true });
   };
-  closeClickedRestaurantDetails = doClose => {
+  closeClickedRestaurantDetails = (doClose) => {
     if (doClose) {
       this.setState({ renderDetails: false });
     }
   };
   render() {
     let dataResults = [];
-    this.state.passedData.map(item => {
+    this.state.passedData.map((item) => {
       dataResults.push(item);
     });
     console.log(dataResults);
     return (
-      <div className="results-main">
-        {dataResults.map(item => {
-          return (
-            <div className="result-restaurant">
-              <RestaurantImageBox
-                key={item.name}
-                data={item}
-                getClickedRestaurantData={this.getClickedRestaurantData.bind(
-                  this
-                )}
-              />
+      <div className='results-main'>
+        {dataResults.length > 0 ? (
+          dataResults.map((item) => {
+            return (
+              <div className='result-restaurant'>
+                <RestaurantImageBox
+                  key={item.name}
+                  data={item}
+                  getClickedRestaurantData={this.getClickedRestaurantData.bind(
+                    this
+                  )}
+                />
 
-              <div className="result-information">
-                <div className="result-category">
-                  <h3>Category:</h3>
-                  <span>{item.categories[0]}</span>
-                </div>
-                <div className="result-address">
-                  <div className="result-street">
-                    <h3>Location:</h3>
-                    <span>{item.location.address}</span>
+                <div className='result-information'>
+                  <div className='result-category'>
+                    <h3>Category:</h3>
+                    <span>{item.categories[0]}</span>
                   </div>
-                  <div className="result-city">
-                    <span>{item.location.city}</span>
+                  <div className='result-address'>
+                    <div className='result-street'>
+                      <h3>Location:</h3>
+                      <span>{item.location.address}</span>
+                    </div>
+                    <div className='result-city'>
+                      <span>{item.location.city}</span>
+                    </div>
                   </div>
-                </div>
-                <div className="result-rating">
-                  <h3>Rating:</h3>
-                  <span>{item.rating}</span>
+                  <div className='result-rating'>
+                    <h3>Rating:</h3>
+                    <span>{item.rating}</span>
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })
+        ) : (
+          <div>
+            <h1>Sorry, We could not find a restaurant matching your search</h1>
+          </div>
+        )}
         {this.state.renderDetails ? (
           <RestaurantDetail
             currentData={this.state.currentData}
