@@ -4,7 +4,9 @@
 	border: 5px solid white;
 	margin: 10px;
 }
-
+.restaurant-image-container:hover{
+	cursor:pointer;
+}
 .rest-image {
 	display: block;
 	width: 100%;
