@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Navbar.css";
 import { library } from "@fortawesome/fontawesome-svg-core";
 library.add(faHamburger, faPizzaSlice);
-const Navbar = props => (
+const Navbar = (props) => (
   <header className='navbar'>
     <nav className='navbar-navigation'>
       <div>
@@ -13,7 +13,7 @@ const Navbar = props => (
       </div>
       <div className='logo'>
         {/* <FontAwesomeIcon icon={["fa", "hamburger"]} /> */}
-        <a ClassName='logo-text' href='/'>
+        <a className='logo-text' href='/'>
           <span className='bold-one'>D</span>eli
           <span className='bold-one'>C</span>ious
         </a>

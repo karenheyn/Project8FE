@@ -10,7 +10,7 @@ class Categories extends Component {
       data: this.props.data,
       filteredcuisineArray: [],
       renderDetails: false,
-      currentData: {} //for getClickedRestaurantData - tyler
+      currentData: {}, //for getClickedRestaurantData - tyler
     };
   }
 
@@ -18,11 +18,11 @@ class Categories extends Component {
    * getClickedRestaurantData returns the data from a restaurant that is clicked
    * -Tyler
    */
-  getClickedRestaurantData = data => {
+  getClickedRestaurantData = (data) => {
     // console.log(data);
     this.setState({ currentData: data, renderDetails: true });
   };
-  closeClickedRestaurantDetails = doClose => {
+  closeClickedRestaurantDetails = (doClose) => {
     if (doClose) {
       this.setState({ renderDetails: false });
     }
@@ -30,19 +30,18 @@ class Categories extends Component {
 
   render() {
     console.log(this.props.data);
-    const myData = this.props.data.sort(function(a, b) {
+    const myData = this.props.data.sort(function (a, b) {
       if (a.name.toLowerCase() < b.name.toLowerCase()) return -1;
       if (a.name.toLowerCase() > b.name.toLowerCase()) return 1;
       return 0;
     });
     console.log(myData);
     return (
-      <div className="wrapper-div">
+      <div className='wrapper-div'>
         {myData.map((item, i) => {
           return (
-            <div className="padding-control">
+            <div key={i} className='padding-control'>
               <RestaurantImageBox
-                key={i}
                 data={item}
                 getClickedRestaurantData={this.getClickedRestaurantData.bind(
                   this
